@@ -48,5 +48,6 @@ This app will satisfy the following criterial with smooth, bug-free navigation, 
 <b>Objective:</b> Users can add, view, and remove favorite restaurants. Add CSS.
 
 <h3>Bonus Features (TBD)</h3>
+
 - [ ] Discover / Explore
 - [ ] Points for bookings and usage of site
