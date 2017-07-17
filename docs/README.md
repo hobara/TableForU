@@ -15,11 +15,11 @@ TableForYou is a web application inspired by OpenTable. This web application is 
 
 <h2>Design Docs</h2>
 
-* [View Wireframes]
-* [React Components]
-* [API Endpoints]
-* [DB Schema]
-* [Sample State]
+* [View Wireframes] (https://github.com/hobara/OpenTable/tree/master/docs/wireframes)
+* [React Components] (https://github.com/hobara/OpenTable/blob/master/docs/component-hierarchy.md)
+* [API Endpoints] (https://github.com/hobara/OpenTable/blob/master/docs/api-endpoints.md)
+* [DB Schema] (https://github.com/hobara/OpenTable/blob/master/docs/schema.md)
+* [Sample State] (https://github.com/hobara/OpenTable/blob/master/docs/sample-state.md)
 
 <h2>Implementation Timeline</h2>
 
@@ -49,5 +49,5 @@ TableForYou is a web application inspired by OpenTable. This web application is 
 
 
 <h3>Bonus Features (TBD)</h3>
-- [ ] Discover / Explore
-- [ ] Points for bookings and usage of site
+* Discover / Explore
+* Points for bookings and usage of site
