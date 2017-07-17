@@ -5,9 +5,13 @@
 
 <h2>Minimum Viable Product</h2>
 
-TableForYou is a web application inspired by OpenTable. This web application is built with a Ruby on Rails backend and React/Redux frontend. By completion this app will satisfy the following criterial with smooth, bug-free navigation, and sufficient CSS styling:
+TableForYou is a web application inspired by OpenTable.
+This web application is built with a Ruby on Rails backend and React/Redux frontend.
+This app will satisfy the following criterial with smooth, bug-free navigation, and sufficient CSS styling:
 
 - [ ] Hosting on Heroku
+- [ ] Production README
+- [ ] Authentication
 - [ ] Create and search restaurants
 - [ ] Reservations
 - [ ] Ratings/reviews
@@ -23,7 +27,7 @@ TableForYou is a web application inspired by OpenTable. This web application is 
 
 <h2>Implementation Timeline</h2>
 
-<h3>Phase 1:Backend setup and Frontend Auth (2 days)</h3>
+<h3>Phase 1: Backend setup and Frontend Auth (2 days)</h3>
 
 <b>Objective:</b> Functional rails project with backend and frontend authentication.
 
@@ -33,21 +37,16 @@ TableForYou is a web application inspired by OpenTable. This web application is 
 
 <h3>Phase 3: Reservations (1 day)</h3>
 
-<b>Objective:</b> Users can search for, make and destroy reservations.
+<b>Objective:</b> Users can search for restaurants and make/destroy reservations.
 
-<h3>Phase 4: Reviews (1 day)</h3>
+<h3>Phase 4: Ratings and Reviews (1 day)</h3>
 
 <b>Objective:</b> Users can write, edit, view, and destroy reviews.
 
-<h3>Phase 5: Recommendations (1 day)</h3>
+<h3>Phase 5: Favorites and CSS (2 day)</h3>
 
-<b>Objective:</b> Users will be presented with recommendations based on location.
-
-<h3>Phase 6: Favorites and CSS (1 day)</h3>
-
-<b>Objective:</b> Users can add, view, and remove favorite restaurants. Add CSS touch ups.
-
+<b>Objective:</b> Users can add, view, and remove favorite restaurants. Add CSS.
 
 <h3>Bonus Features (TBD)</h3>
-* Discover / Explore
-* Points for bookings and usage of site
+- [ ] Discover / Explore
+- [ ] Points for bookings and usage of site
