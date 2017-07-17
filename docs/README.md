@@ -1,7 +1,7 @@
 <h2>TableForYou</h2>
 
 * Heroku: (https://table-for-you.herokuapp.com/)
-* Trello: (https://trello.com/b/ONOhYsX9/HelloTable)
+* Trello: (https://trello.com/b/wPp6q6sR/tableforyou)
 
 <h2>Minimum Viable Product</h2>
 
