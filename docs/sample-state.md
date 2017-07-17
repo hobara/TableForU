@@ -1,28 +1,29 @@
 ```{
   currentUser: {
     id: userId,
-    username: first name,
+    username: `${firstName lastName}`
   }
+
   forms: {
     signUp: { errors: []},
     signIn: { errors: []},
     review: { errors: []},
   }
+
   restaurants: {
     id: {
-      owner_id: id of owner,
-      name: restaurant name,
-      about: {
-        style: type of dining,
-        description: about text,
-        hours: hours of operation,
-        phone: restaurant phone number,
-        siteLink: link to restaurant website,
-      }
-      location: (tentatively geolocation),
+      owner_id: userId,
+      name: restaurantName,
+      city_id: cityId
+      address: string of address,
+      type: type of dining,
+      price: price range,
+      hours: hours of operation,
+      about: text about restaurants,
       photos: urls for photos,
     }
   }
+
   reservations: {
     id: {
       user: belongs to user,
@@ -31,22 +32,17 @@
       date: date,
     }
   }
+
   reviews: {
     id: {
-      rating: {
-        total: overall rating,
-        food: food score,
-        service: service score,
-        ambiance: ambiance score,
-        value: value score,
-        noise: noise score,
-      }
-      date: user reservation date,
-      location: user location,
       restaurant: restaurant_id,
+      rating: integer in the scale of 5,
+      comment: text
+      date: user reservation date,
     }
   }
+
   favorites: {
     restaurant: restaurant_id,
   }
-}
+}```

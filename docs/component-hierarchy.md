@@ -6,9 +6,10 @@
 
 <h3>HomeContainer</h3>
 
-* Home
-* Navbar
-* RecommendationsItems
+* Header
+* RestaurantSearch
+* CityLists
+* AddRestaurant
 
 <h3>UsersContainer</h3>
 
@@ -29,7 +30,7 @@
 
 * FavoritesItems
 
-<h3>RecommendationsContainer</h3>
+<h3>CityContainer</h3>
 
 * RestaurantsItems
 * ReviewsItems
@@ -45,4 +46,4 @@
 | "/restaurant/:reservation_id" | RestaurantsContainer |
 | "/favorites" | FavoritesContainer |
 | "/home/user" | UsersContainer |
-| "/city" | RecommendationsContainer |
+| "/city" | CityContainer |

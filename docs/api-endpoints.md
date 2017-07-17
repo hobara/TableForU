@@ -14,6 +14,12 @@
 * POST /api/session
 * DELETE /api/session
 
+<h3>Cities</h3>
+
+* GET /api/city
+* GET /api/city/:id
+* PATCH /api/city/:id
+
 <h3>Restaurants</h3>
 
 * GET /api/restaurants
