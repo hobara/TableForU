@@ -33,8 +33,8 @@
 
   reservation: {
     id: {
-      user: belongs to user,
-      restaurant: belongs to restaurant,
+      user: user_id,
+      restaurant: restaurant_id,
       time: time,
       date: date,
       seats: number of guests
@@ -51,7 +51,7 @@
     }
   }
 
-  favorites: {
+  favorite: {
     user: user_id,
     restaurant: restaurant_id
   }
@@ -59,7 +59,7 @@
   user: {
     upcoming_reservation: [],
     past_reservation: [],
-    favorites: []
+    favorite: []
   }
 
 }```

@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+
+img {
+  width: 50px;
+  height: auto;
+}
+
+h1 {
+  font-size: 60px;
+  /*font-family: 'Source Sans Pro', sans-serif;*/
+  font-weight: black;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
