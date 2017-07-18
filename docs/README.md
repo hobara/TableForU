@@ -11,7 +11,7 @@ This app will satisfy the following criterial with smooth, bug-free navigation, 
 
 - [ ] Hosting on Heroku
 - [ ] Production README
-- [ ] Authentication
+- [ ] New Account Creation / Login, Guest demo login
 - [ ] Create and search restaurants
 - [ ] Reservations
 - [ ] Ratings/reviews

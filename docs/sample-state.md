@@ -4,45 +4,62 @@
     username: `${firstName lastName}`
   }
 
-  forms: {
-    signUp: { errors: []},
-    signIn: { errors: []},
-    review: { errors: []},
-  }
+  errors: [],
 
   restaurants: {
-    id: {
-      owner_id: userId,
-      name: restaurantName,
-      city_id: cityId
-      address: string of address,
-      type: type of dining,
-      price: price range,
-      hours: hours of operation,
-      about: text about restaurants,
-      photos: urls for photos,
+    1: {
+      id: 1,
+      restaurant: restaurant_id
+    },
+    2: {
+      id: 2,
+      restaurant: restaurant_id
     }
   }
 
-  reservations: {
+  restaurant: {
+    id: 1
+    owner: user_id,
+    name: restaurant name,
+    city: city_id,
+    address: string of address,
+    type: type of dining,
+    price: price range,
+    hours: hours of operation,
+    about: text about restaurants,
+    photos: urls for photos,
+    rate: average rating
+  }
+
+  reservation: {
     id: {
       user: belongs to user,
       restaurant: belongs to restaurant,
       time: time,
       date: date,
+      seats: number of guests
     }
   }
 
-  reviews: {
+  review: {
     id: {
+      author: user_id
       restaurant: restaurant_id,
-      rating: integer in the scale of 5,
+      rating: rate for restaurant,
       comment: text
       date: user reservation date,
     }
   }
 
   favorites: {
-    restaurant: restaurant_id,
+    user: user_id,
+    restaurant: restaurant_id
   }
+
+  user: {
+    upcoming_reservation: [],
+    past_reservation: [],
+    favorites: []
+  }
+
 }```

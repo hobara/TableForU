@@ -1,39 +1,61 @@
 <h2>Component Hierarchy</h2>
 
-<h3>AuthFormContainer</h3>
-
-* AuthForm
-
 <h3>HomeContainer</h3>
 
-* Header
-* RestaurantSearch
-* CityLists
-* AddRestaurant
-
-<h3>UsersContainer</h3>
-
-* ReservationsItems
-* RestaurantsItems
-* FavoritesItems
-
-<h3>RestaurantsContainer</h3>
-
-* RestaurantsItem
-* ReviewsItem
-
-<h3>ReviewsContainer</h3>
-
-* ReviewsItem
-
-<h3>FavoritesContainer</h3>
-
-* FavoritesItems
+* HeaderContainer
+* RestaurantSearchContainer
+* CityIndex
+* AddRestaurantContainer
 
 <h3>CityContainer</h3>
 
-* RestaurantsItems
-* ReviewsItems
+* HeaderContainer
+* RestaurantSearchContainer
+* RestaurantIndex
+* ReviewContainer
+
+<h3>RestaurantContainer</h3>
+
+* HeaderContainer
+* RestaurantItems
+* ReviewContainer
+
+<h3>UserContainer</h3>
+
+* ReservationContainer
+* RestaurantContainer
+* FavoriteContainer
+
+<h4>AuthFormContainer</h4>
+
+* AuthForm
+
+<h4>HeaderContainer</h4>
+
+* HeaderItem
+
+<h4>RestaurantSearchContainer</h4>
+
+* RestaurantSearchItem
+
+<h4>AddRestaurantContainer</h4>
+
+* AddRestaurantItem
+
+<h4>ReservationContainer</h4>
+
+* ReservationIndex
+* ReservationIndexItem
+
+<h4>ReviewContainer</h4>
+
+* ReviewIndex
+* ReviewIndexItem
+
+<h4>FavoriteContainer</h4>
+
+* FavoriteIndex
+* FavoriteIndexItems
 
 
 <h2>Routes</h2>
@@ -43,7 +65,9 @@
 | "/sign-up" | AuthFormContainer |
 | "/sign-in" | AuthFormContainer |
 | "/home" | HomeContainer |
-| "/restaurant/:reservation_id" | RestaurantsContainer |
-| "/favorites" | FavoritesContainer |
-| "/home/user" | UsersContainer |
 | "/city" | CityContainer |
+| "/restaurant/:reservation_id" | RestaurantContainer |
+| "/user" | UserContainer |
+| "/user/:user_id/reservation" | ReservationContainer |
+| "/user/:user_id/favorite" | FavoriteContainer |
+| "/restaurant/restaurant_id/review" | ReviewContainer |
