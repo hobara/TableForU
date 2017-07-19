@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(session_token: session[:session_token])
+    @user = current_user
     if @user
       log_out
       render '/api/users/show'

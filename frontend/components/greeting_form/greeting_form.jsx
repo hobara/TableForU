@@ -10,15 +10,15 @@ const sessionLink = () => (
   </nav>
 );
 
-const personalGreeting = (currentUser, logout) => (
+const personalGreeting = (currentUser, signout) => (
   <nav className="loggedin-header">
-    <h2 className="header-name">Hi, {currentUser.username}!</h2>
-    <button className="header-button" onClick={logout}>Log Out</button>
+    <h3 className="header-name">Hi, {currentUser.username}!</h3>
+    <button className="header-button" onClick={signout} >Sign Out</button>
   </nav>
 );
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLink()
+const Greeting = ({ currentUser, signout }) => (
+  currentUser ? personalGreeting(currentUser, signout) : sessionLink()
 );
 
 export default Greeting;
