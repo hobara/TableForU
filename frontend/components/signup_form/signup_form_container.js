@@ -4,16 +4,15 @@ import SignUpForm from './signup_form';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.currentUser,
-    loggedIn: Boolean(state.session.currentUser),
-    errors: state.session.errors
+    currentUser: state.currentUser,
+    loggedIn: Boolean(state.currentUser),
+    errors: state.errors
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signup: user => dispatch(signup(user)),
-    receiveErrors: errors => dispatch(receiveErrors(errors))
+    signup: user => dispatch(signup(user))
   };
 };
 

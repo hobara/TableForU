@@ -17,25 +17,25 @@ class SessionForm extends React.Component {
     }
   }
 
-  update(field) {
+  update(key) {
     return event => this.setState({
-      [field]: event.currentTarget.value
+      [key]: event.currentTarget.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    this.props.signin({user});
   }
 
-  navLink() {
-    if (this.props.formType === 'signin') {
-      return <Link to='/signup'>Sign Up</Link>;
-    } else {
-      return <Link to='/signin'>Log In</Link>;
-    }
-  }
+  // navLink() {
+  //   if (this.props.formType === 'signin') {
+  //     return <Link to='/signup'>Sign Up</Link>;
+  //   } else {
+  //     return <Link to='/signin'>Log In</Link>;
+  //   }
+  // }
 
   renderErrors() {
     return(
@@ -51,22 +51,24 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      console.log(this.props),
       <div className='signin-form-container'>
         <form onSubmit={this.handleSubmit} className='signin-form-box'>
           <br/>
-          <span className='signin-form-header'>Welcome back!</span>
-          {this.renderErrors()}
+          <span className='signin-form-header'>Please sign in</span>
           <div className='signin-form'>
-            <label>Username:
-              <input type='text' className='signin-input'
+            <label>
+              <input type='text' className='signin-input' placeholder='Username*'
                 value={this.state.username} onChange={this.update('username')} />
             </label>
             <br/>
-            <label>Password:
-              <input type='password' className='signin-input'
+            <label>
+              <input type='password' className='signin-input' placeholder='Password*'
                 value={this.state.password} onChange={this.update('password')} />
             </label>
-            <br/>
+            <section className='session-errors'>
+              <h6>{this.renderErrors()}</h6>
+            </section>
             <input type='submit' className='session-button' value='Sign In' />
           </div>
         </form>
