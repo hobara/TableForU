@@ -9,7 +9,7 @@ const App = () => (
   <div>
     <header>
       <Link className='header' to='/'>
-        <img src='/assets/open_table_logo_animation.gif' /> TableForU
+        <img src='http://res.cloudinary.com/hobara/image/upload/v1500428429/open_table_logo_animation_iifjys.gif' /> TableForU
       </Link>
       <GreetingContainer />
     </header>
