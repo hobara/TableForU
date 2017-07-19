@@ -30,10 +30,10 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    if (this.props.formType === 'login') {
+    if (this.props.formType === 'signin') {
       return <Link to='/signup'>Sign Up</Link>;
     } else {
-      return <Link to='/login'>Log In</Link>;
+      return <Link to='/signin'>Log In</Link>;
     }
   }
 
@@ -51,26 +51,28 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className='login-form-container'>
-
-        <form onSubmit={this.handleSubmit} className='login-form-box'>
-          Please {this.props.formType} or {this.navLink()}
-          <div className='login-form'>
-            <br/>
+      <div className='signin-form-container'>
+        <form onSubmit={this.handleSubmit} className='signin-form-box'>
+          <br/>
+          <span className='signin-form-header'>Welcome back!</span>
+          <div className='signin-form'>
             <label>Username:
-              <input type='text' value={this.state.username}
-                 onChange={this.update('username')} className='login-input'/>
+              <input type='text' className='signin-input'
+                value={this.state.username} onChange={this.update('username')} />
             </label>
             <br/>
             <label>Password:
-              <input type='password' value={this.state.password}
-                onChange={this.update('password')} className='login-input'/>
+              <input type='password' className='signin-input'
+                value={this.state.password} onChange={this.update('password')} />
             </label>
             <br/>
-            <br/>
-            <input type='submit' value='Submit' />
+            <input type='submit' className='session-button' value='Sign In' />
           </div>
         </form>
+        <br />
+        <span className='back-to-login'>
+          New to TableForU?  <Link to='/signup'>Create an account</Link>
+        </span>
         <br />
         <Link to={'/'}>
           <span className='back-to-home'>Go Back to Home</span>

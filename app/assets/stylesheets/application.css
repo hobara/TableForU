@@ -20,12 +20,19 @@ img {
   height: auto;
 }
 
-h1 {
+.header {
+  text-decoration: none;
+  color: black;
   font-size: 60px;
-  /*font-family: 'Source Sans Pro', sans-serif;*/
-  font-weight: black;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.session-button {
+  background-color: #E5656E;
+  border-radius: 5px;
 }

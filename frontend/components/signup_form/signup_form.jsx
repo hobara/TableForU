@@ -33,7 +33,6 @@ class SignUpForm extends React.Component {
   //   if (this.props.formType === 'login') {
   //     return <Link to='/signup'>Sign Up</Link>;
   //   } else {
-      return <Link to='/login'>Log In</Link>;
   //   }
   }
 
@@ -53,22 +52,32 @@ class SignUpForm extends React.Component {
     return (
       <div className='signup-form-container'>
         <form onSubmit={this.handleSubmit} className='signup-form-box'>
-          Welcome to TableForU
-{this.navLink()}
-          <div className='login-form'>
-            <br/>
+          <br/>
+          <span className='signup-form-header'>Welcome to TableForU!</span>
+          <div className='signup-form'>
             <label>Username:
-              <input type='text' value={this.state.username}
-                 onChange={this.update('username')} className='login-input'/>
+              <input type='text' className='signup-input'
+                value={this.state.username} onChange={this.update('username')} />
+            </label>
+            <br/>
+            <label>Email:
+              <input type='text' className='signup-input'
+                value={this.state.email} onChange={this.update('email')} />
             </label>
             <br/>
             <label>Password:
-              <input type='password' value={this.state.password}
-                onChange={this.update('password')} className='login-input'/>
+              <input type='password' className='signup-input'
+                value={this.state.password} onChange={this.update('password')} />
             </label>
             <br/>
-            <br/>
-            <input type='submit' value='Submit' />
+            <label>Primary location:
+              <input type='location' className='signup-input'
+                value={this.state.location} onChange={this.update('location')} />
+            </label>
+            <div className='session-errors'>
+              {this.renderErrors()}
+            </div>
+            <input type='submit' className='session-button' value='Create Account' />
           </div>
         </form>
         <br />

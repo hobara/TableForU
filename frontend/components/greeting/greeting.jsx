@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 const sessionLink = () => (
-  <nav className="login-signup">
-    <Link to="/login">Log In</Link>
+  <nav className="signin-signup">
+    <Link to="/signin">Sign In</Link>
     <br />
     <Link to="/signup">Sign up</Link>
   </nav>
