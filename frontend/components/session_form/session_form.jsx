@@ -55,6 +55,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className='signin-form-box'>
           <br/>
           <span className='signin-form-header'>Welcome back!</span>
+          {this.renderErrors()}
           <div className='signin-form'>
             <label>Username:
               <input type='text' className='signin-input'

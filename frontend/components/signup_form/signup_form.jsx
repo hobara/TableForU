@@ -6,7 +6,9 @@ class SignUpForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: '',
+      location: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -17,23 +19,16 @@ class SignUpForm extends React.Component {
     }
   }
 
-  update(field) {
+  update(key) {
     return event => this.setState({
-      [field]: event.currentTarget.value
+      [key]: event.currentTarget.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
-  }
-
-  navLink() {
-  //   if (this.props.formType === 'login') {
-  //     return <Link to='/signup'>Sign Up</Link>;
-  //   } else {
-  //   }
+    this.props.signup({user});
   }
 
   renderErrors() {
@@ -50,34 +45,28 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
+      console.log(this.props),
       <div className='signup-form-container'>
-        <form onSubmit={this.handleSubmit} className='signup-form-box'>
+        <form className='signup-form-box'>
           <br/>
           <span className='signup-form-header'>Welcome to TableForU!</span>
           <div className='signup-form'>
-            <label>Username:
-              <input type='text' className='signup-input'
-                value={this.state.username} onChange={this.update('username')} />
-            </label>
+            <input type='text' className='signup-input' placeholder='Username*'
+              value={this.state.username} onChange={this.update('username')} />
             <br/>
-            <label>Email:
-              <input type='text' className='signup-input'
-                value={this.state.email} onChange={this.update('email')} />
-            </label>
+            <input type='text' className='signup-input' placeholder='Email*'
+              value={this.state.email} onChange={this.update('email')} />
             <br/>
-            <label>Password:
-              <input type='password' className='signup-input'
-                value={this.state.password} onChange={this.update('password')} />
-            </label>
+            <input type='password' className='signup-input' placeholder='Password*'
+              value={this.state.password} onChange={this.update('password')} />
             <br/>
-            <label>Primary location:
-              <input type='location' className='signup-input'
-                value={this.state.location} onChange={this.update('location')} />
-            </label>
-            <div className='session-errors'>
-              {this.renderErrors()}
-            </div>
-            <input type='submit' className='session-button' value='Create Account' />
+            <input type='location' className='signup-input' placeholder='Primary dining location*'
+              value={this.state.location} onChange={this.update('location')} />
+            <section className='session-errors'>
+              <h6>{this.renderErrors()}</h6>
+            </section>
+            <input type='submit' className='session-button'
+              value='Create Account' onClick={this.handleSubmit} />
           </div>
         </form>
         <br />

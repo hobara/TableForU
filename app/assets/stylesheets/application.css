@@ -15,9 +15,19 @@
  */
 
 
-img {
+.header-logo {
   width: 50px;
   height: auto;
+}
+
+
+.main-background {
+  margin: 10px 0px 10px 0px;
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500433978/2_juw0p9.jpg');
+  height: 650px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
 .header {
