@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
-const sessionLink = () => (
+const sessionLink = (handleDemo) => (
   <nav className="signin-signup">
     <Link to="/signup">Sign Up</Link>
     <br />
     <Link to="/signin">Sign In</Link>
+    <br />
+    <button className='demo-button' onClick={handleDemo}>Demo</button>
   </nav>
 );
 
@@ -17,8 +19,8 @@ const personalGreeting = (currentUser, signout) => (
   </nav>
 );
 
-const Greeting = ({ currentUser, signout }) => (
-  currentUser ? personalGreeting(currentUser, signout) : sessionLink()
+const GreetingForm = ({ currentUser, signout, handleDemo }) => (
+  currentUser ? personalGreeting(currentUser, signout) : sessionLink(handleDemo)
 );
 
-export default Greeting;
+export default GreetingForm;

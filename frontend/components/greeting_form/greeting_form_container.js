@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { signout } from '../../actions/session_actions';
-import Greeting from './greeting_form';
+import { signout, signin } from '../../actions/session_actions';
+import GreetingForm from './greeting_form';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,11 +10,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  signout: () => dispatch(signout())
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    signout: () => dispatch(signout()),
+    handleDemo:() => dispatch(signin({user: {username:'Guest', password:'password'}}))
+  };
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(GreetingForm);
