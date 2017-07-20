@@ -15,12 +15,6 @@
  */
 
 
-.header-logo {
-  width: 50px;
-  height: auto;
-}
-
-
 .main-background {
   margin: 10px 0px 10px 0px;
   background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500505112/3-1_jyijqv.png');
@@ -30,14 +24,6 @@
   color: white;
 }
 
-.header {
-  text-decoration: none;
-  color: black;
-  font-size: 60px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 900;
-}
-
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -45,4 +31,123 @@ body {
 .session-button {
   background-color: #E5656E;
   border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  /*border: 3px solid black;*/
+}
+
+.header-left {
+  order: 1;
+  /*border: 1px solid red;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-logo-container {
+  /*border: 1px solid blue;*/
+  margin: 0px 10px 0px 0px;
+}
+
+.header-logo-img {
+  width: 34px;
+  height: auto;
+  padding: 3px 3px;
+}
+
+.header-link {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+}
+
+.header-city-container {
+  /*border: 1px solid blue;*/
+  margin: 0px 10px 3px 10px;
+}
+
+
+.header-city-lists {
+  height: 30px;
+  margin: 0px 5px 0px 0px;
+}
+
+.header-session-container {
+
+}
+
+.header-right {
+  order: 2;
+  /*border: 1px solid red;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-signup {
+  order: 1;
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  margin: 0px 10px 3px 0px;
+  padding: 5px 10px 5px 10px;
+  background-color: #356273;
+  color: white;
+  font-size: 14px;
+}
+
+.header-signin {
+  order: 2;
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 10px 5px 10px;
+  background-color: #356273;
+  color: white;
+  font-size: 14px;
+}
+
+.header-button {
+  order: 3;
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 10px 5px 10px;
+  background-color: #E5656E;
+  color: white;
+  font-size: 12px;
+}
+
+.header-name {
+  margin: 5px 10px 0px 0px;
+  padding: 5px 0px 0px 0px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.signup-form-container {
+  margin: 0px 10px 0px 0px;
+}
+
+.session-form-container {
+  margin: 0px 10px 0px 0px;
+}
+
+.session-button {
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 10px 5px 10px;
+  background-color: #E5656E;
+  color: white
 }

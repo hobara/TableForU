@@ -8,9 +8,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <Link className='header' to='/'>
-        <img className='header-logo' src='http://res.cloudinary.com/hobara/image/upload/v1500428429/open_table_logo_animation_iifjys.gif' /> TableForU
-      </Link>
       <GreetingContainer />
     </header>
 
@@ -18,7 +15,7 @@ const App = () => (
     <AuthRoute path='/signin' component={SessionFormContainer} />
 
     <div className='main-background'>
-      TableForU
+
     </div>
   </div>
 );
