@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.city-lists-header {
+.city-lists {
+  margin: 0px 0px 60px 0px;
+}
+
+.city-lists-title {
   margin: 40px 40px 0px 40px;
   padding: 5px 5px;
   font-size: 24px;
@@ -20,7 +24,7 @@
 }
 
 .city-lists-1-1 {
-  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523336/ny_u9baxt.jpg');
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500609470/ny_gmpile.jpg');
   background-size: cover;
   order: 1;
   width: 33.333%;
@@ -95,7 +99,7 @@
 }
 
 .city-lists-2-2 {
-  background-image: url('  http://res.cloudinary.com/hobara/image/upload/v1500523351/dc_cbkolj.jpg');
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500609737/dc_iiyvqd.jpg');
   background-size: cover;
   order: 1;
   width: 33.333%;
@@ -169,7 +173,7 @@
 }
 
 .city-lists-3-3 {
-  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523415/par_r2gu87.jpg');
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500609348/par_ucpct3.jpg');
   background-size: cover;
   order: 1;
   width: 33.333%;
@@ -182,4 +186,53 @@
 
 .city-lists-3-3:hover {
   opacity: 0.80;
+}
+
+.city-lists-title {
+  border: 1px solid #F3F2F1;
+  margin: 40px 40px 0px 40px;
+  border-radius: 3px;
+}
+
+.featured-cities-lists {
+  border: 1px solid #F3F2F1;
+  margin: 0px 40px;
+  border-radius: 3px;
+}
+
+
+.city-row1 {
+  display: flex;
+  justify-content: space-around;
+  // border: 1px solid red;
+  margin: 0px 40px;
+  padding: 20px 20px 0px 20px;
+}
+
+
+.city-row2 {
+  display: flex;
+  justify-content: space-around;
+  // border: 1px solid red;
+  margin: 0px 60px;
+  padding: 20px 20px;
+}
+
+.city-row3 {
+  display: flex;
+  justify-content: space-around;
+  // border: 1px solid red;
+  margin: 0px 40px;
+  padding: 20px 40px;
+  border: 1px solid #F3F2F1;
+  border-radius: 3px;
+}
+
+.city {
+  // border: 1px solid blue;
+  color: #356273;
+}
+
+.city:hover {
+  color: #E5656E;
 }

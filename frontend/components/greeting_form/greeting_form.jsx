@@ -42,11 +42,11 @@ const GreetingForm = ({ currentUser, signout, handleDemo }) => {
               <option value="">Chicago</option>
               <option value="">New York</option>
               <option value="">Washington DC</option>
-              <option value="">Paris</option>
               <option value="">Toronto</option>
+              <option value="">Singapore</option>
               <option value="">Tokyo</option>
               <option value="">Osaka</option>
-              <option value="">Singapore</option>
+              <option value="">Paris</option>
             </select>
             <span className='header-button' >Go</span>
           </span>
