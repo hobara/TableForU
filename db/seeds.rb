@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # destroy
 City.destroy_all
-san_francisco = City.create(name: "San Francisco", city_id: 1, image: "http://res.cloudinary.com/hobara/image/upload/v1500523306/sf_nwaj28.jpg")
+san_francisco = City.create(name: "San Francisco", city_id: 1, image: "https://res.cloudinary.com/hobara/image/upload/v1500653899/sf_nwaj28.jpg")
 los_angeles = City.create(name: "Los Angeles", city_id: 2, image: "http://res.cloudinary.com/hobara/image/upload/v1500523312/la_cvzhsc.jpg")
 seattle = City.create(name: "Seattle", city_id: 3, image: "http://res.cloudinary.com/hobara/image/upload/v1500523321/se_qlkgic.jpg")
 chicago = City.create(name: "Chicago", city_id: 4, image: "http://res.cloudinary.com/hobara/image/upload/v1500523329/chi_rnturk.jpg")
