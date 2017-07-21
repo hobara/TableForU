@@ -1,0 +1,185 @@
+// Place all the styles related to the Api/Cities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.city-lists-header {
+  margin: 40px 40px 0px 40px;
+  padding: 5px 5px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.row-1 {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 50px;
+  min-height: 150px;
+  min-width: 200px;
+  // border: 1px solid red;
+  margin: 0px 40px;
+}
+
+.city-lists-1-1 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523336/ny_u9baxt.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-1-1:hover {
+  opacity: 0.80;
+}
+
+.city-lists-1-2 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523312/la_cvzhsc.jpg');
+  background-size: cover;
+  order: 2;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-1-2:hover {
+  opacity: 0.80;
+}
+
+.city-lists-1-3 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523329/chi_rnturk.jpg');
+  background-size: cover;
+  order: 3;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.city-lists-1-3:hover {
+  opacity: 0.80;
+}
+
+
+.row-2 {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 50px;
+  min-height: 150px;
+  min-width: 200px;
+  // border: 1px solid red;
+  margin: 0px 40px;
+}
+
+.city-lists-2-1 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523306/sf_nwaj28.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-2-1:hover {
+  opacity: 0.80;
+}
+
+.city-lists-2-2 {
+  background-image: url('  http://res.cloudinary.com/hobara/image/upload/v1500523351/dc_cbkolj.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-2-2:hover {
+  opacity: 0.80;
+}
+
+.city-lists-2-3 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523339/aus_gg4uwn.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-2-3:hover {
+  opacity: 0.80;
+}
+
+.row-3 {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 50px;
+  min-height: 150px;
+  min-width: 200px;
+  // border: 1px solid red;
+  margin: 0px 40px;
+}
+
+.city-lists-3-1 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523399/sin_vu9uew.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-3-1:hover {
+  opacity: 0.80;
+}
+
+.city-lists-3-2 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523367/ty_p22udr.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-3-2:hover {
+  opacity: 0.80;
+}
+
+.city-lists-3-3 {
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500523415/par_r2gu87.jpg');
+  background-size: cover;
+  order: 1;
+  width: 33.333%;
+  // border: 1px solid orange;
+  padding: 60px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.city-lists-3-3:hover {
+  opacity: 0.80;
+}

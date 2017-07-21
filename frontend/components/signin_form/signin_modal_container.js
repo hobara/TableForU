@@ -1,14 +1,10 @@
 import { connect } from 'react-redux';
 import { signin, logout, signup, receiveErrors } from '../../actions/session_actions';
-import SessionForm from './session_form';
+import SignInModal from './signin_modal';
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.currentUser,
-    loggedIn: Boolean(state.currentUser),
-    errors: state.errors
-  };
-};
+const mapStateToProps = (state) => ({
+  errors: state.errors
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -19,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SessionForm);
+)(SignInModal);
