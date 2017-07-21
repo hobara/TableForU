@@ -28,7 +28,7 @@ const GreetingForm = ({ currentUser, signout, handleDemo }) => {
             <img className='header-logo-img'
               src='http://res.cloudinary.com/hobara/image/upload/v1500428429/open_table_logo_animation_iifjys.gif' />
               <span className='header-first'>Table</span>
-              <span className='header-second'>for</span>
+              <span className='header-second'>For</span>
               <span className='header-third'>Ü</span>
           </Link>
         </span>

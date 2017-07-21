@@ -23,7 +23,7 @@ h6 {
 
 .main-background {
   margin: 10px 0px 10px 0px;
-  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500505112/3-1_jyijqv.png');
+  background-image: url('http://res.cloudinary.com/hobara/image/upload/v1500504588/5_hqiy2f.jpg');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,6 +135,7 @@ body {
 
 .header-signup:hover {
   background-color: #203c46;
+  cursor: pointer;
 }
 
 .header-signin {
@@ -151,6 +152,7 @@ body {
 
 .header-signin:hover {
   background-color: #203c46;
+  cursor: pointer;
 }
 
 .header-button {
@@ -167,6 +169,7 @@ body {
 
 .header-button:hover {
   background-color: #DA3743;
+  cursor: pointer;
 }
 
 
@@ -229,6 +232,7 @@ body {
 
 .signin-button:hover {
   background-color: #c4313c;
+  cursor: pointer;
 }
 
 .signup-button {
@@ -242,6 +246,7 @@ body {
 
 .signup-button:hover {
   background-color: #c4313c;
+  cursor: pointer;
 }
 
 .back-to-login {
@@ -257,6 +262,7 @@ body {
 
 .back-to-login-button:hover {
   color: #c4313c;
+  cursor: pointer;
 }
 
 .signup-modal-container {
