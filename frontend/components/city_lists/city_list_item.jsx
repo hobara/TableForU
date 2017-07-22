@@ -18,21 +18,15 @@ class CityListItem extends Component {
   render() {
     console.log(this.props);
     console.log(this.state);
-    let city;
     let singleCity = this.props.city;
-    if (singleCity) {
-      city = singleCity;
-    } else {
-      return null;
-    }
+
     return (
       <div className='city-show-page'>
-        <GreetingContainer />
         <div className='city-show-page-header'>
           <h2>{singleCity.name}</h2>
         </div>
         <div className="city-show-page-image">
-          <img src={singleCity.image ? singleCity.img : ""} className="city-image"></img>
+          <img src={singleCity.image} className="city-image"></img>
         </div>
         <section className='city-show-page-content'>
           Restaurants:

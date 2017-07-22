@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SignUpModalContainer from '../signup_form/signup_modal_container';
 import SignInModalContainer from '../signin_form/signin_modal_container';
 import { signin } from '../../actions/session_actions';
+import CityListsContainer from '../city_lists/city_lists_container';
 
 class GreetingForm extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class GreetingForm extends React.Component {
   render() {
     console.log(this.props);
     return(
+    <div>
       <div className='header'>
         <section className='header-left'>
           <span className='header-logo-container'>
@@ -85,6 +87,10 @@ class GreetingForm extends React.Component {
           </section>
         </section>
       </div>
+      <div className='main-background'>
+      </div>
+      <CityListsContainer />
+    </div>
     );
   }
 }
