@@ -3,9 +3,7 @@ import CityListItem from './city_list_item';
 import { requestSingleCity } from '../../actions/city_actions';
 
 const mapStateToProps = (state) => ({
-  id: state.city_id,
-  name: state.name,
-  image: state.image
+  city: state.city
 });
 
 const mapDispatchToProps = (dispatch) => ({

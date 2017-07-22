@@ -265,3 +265,29 @@
   color: #E5656E;
   cursor: pointer;
 }
+
+.city-show-page-header {
+  text-decoration: none;
+  margin: 10px 0px 10px 10px;
+}
+
+.city-show-page-content {
+  margin: 10px 0px 10px 10px;
+}
+
+.city-image {
+  height: 500px;
+  repeat: no-repeat;
+  size: cover;
+    margin: 10px 0px 10px 0px;
+}
+
+.go-back-to-home {
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  padding: 5px 12px 5px 12px;
+  background-color: #E5656E;
+  color: white;
+  font-size: 12px;
+}

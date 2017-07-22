@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting_form/greeting_form_container';
-
+import { requestAllCity } from '../../actions/city_actions';
 
 class CityListItem extends Component {
 
@@ -16,35 +16,36 @@ class CityListItem extends Component {
   }
 
   render() {
-    // let city;
-    // let singleCity = this.props.state.id[this.props.match.params.city_id];
-    // if (singleCity) {
-    //   city = singleCity;
-    // } else {
-    //   return null;
-    // }
+    console.log(this.props);
+    console.log(this.state);
+    let city;
+    let singleCity = this.props.city;
+    if (singleCity) {
+      city = singleCity;
+    } else {
+      return null;
+    }
     return (
-      <div>
+      <div className='city-show-page'>
         <GreetingContainer />
-        {window.location.hash}
-        <div className='main-background'>
+        <div className='city-show-page-header'>
+          <h2>{singleCity.name}</h2>
         </div>
-        <section className=''>
+        <div className="city-show-page-image">
+          <img src={singleCity.image} className="city-image"></img>
+        </div>
+        <section className='city-show-page-content'>
+          Restaurants:
           <ul>
-            <span className=''>
-              <h2>{this.props.name}</h2>
-            </span>
-            <span className=''>
-              <h3>{this.props.image}</h3>
-            </span>
-            <span className=''>
-              <h4>{this.props.city_id}</h4>
-            </span>
+            <li className=''>
+              restaurant1
+            </li>
+            <li className=''>
+              restaurant2
+            </li>
           </ul>
           <ul>
-            <Link to={`/`}>
-              <span className='go-back-to-home'>Go Back To Home</span>
-            </Link>
+            <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
           </ul>
         </section>
       </div>

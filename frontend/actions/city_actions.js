@@ -24,12 +24,12 @@ export const createCity = (city) => dispatch => (
   })
 );
 
-export const receiveAllCity = (city) => ({
+export const receiveAllCity = (cities) => ({
   type: RECEIVE_ALL_CITY,
-  city
+  cities
 });
 
-export const receiveSingleCity = (payload) => ({
+export const receiveSingleCity = (city) => ({
   type: RECEIVE_SINGLE_CITY,
-  payload
+  city
 });

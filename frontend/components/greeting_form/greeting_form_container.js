@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { signout, signin } from '../../actions/session_actions';
 import GreetingForm from './greeting_form';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,11 +14,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     signout: () => dispatch(signout()),
-    handleDemo:() => dispatch(signin({user: {username:'Guest', password:'password'}}))
+    signin: (user) => dispatch(signin(user))
+
   };
 };
 
-export default connect(
+  export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(GreetingForm);
+)(GreetingForm));
