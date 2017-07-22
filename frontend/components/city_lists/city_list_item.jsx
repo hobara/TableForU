@@ -32,7 +32,7 @@ class CityListItem extends Component {
           <h2>{singleCity.name}</h2>
         </div>
         <div className="city-show-page-image">
-          <img src={singleCity.image} className="city-image"></img>
+          <img src={singleCity.image ? singleCity.img : ""} className="city-image"></img>
         </div>
         <section className='city-show-page-content'>
           Restaurants:
