@@ -9,8 +9,8 @@ import CityListItemContainer from './city_lists/city_list_item_container';
 
 const App = () => (
   <div>
-      <Route exact path='/' component={GreetingContainer} />
-      <Route exact path='/api/city/:city_id' component={CityListItemContainer} />
+    <Route exact path='/' component={GreetingContainer} />
+    <Route exact path='/api/city/:city_id' component={CityListItemContainer} />
   </div>
 );
 

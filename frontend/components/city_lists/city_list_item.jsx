@@ -17,7 +17,6 @@ class CityListItem extends Component {
 
   render() {
     console.log(this.props);
-    console.log(this.state);
     let singleCity = this.props.city;
 
     return (
