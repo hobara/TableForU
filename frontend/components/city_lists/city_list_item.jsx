@@ -18,6 +18,11 @@ class CityListItem extends Component {
   render() {
     console.log(this.props);
     let singleCity = this.props.city;
+    if (singleCity) {
+
+    } else {
+      singleCity = { name: '', image:'' };
+    }
 
     return (
       <div className='city-show-page'>
