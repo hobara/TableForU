@@ -17,7 +17,7 @@ class CityLists extends React.Component {
     const allIds = Object.keys(this.props.cities);
     let allCities = [];
     if (allIds.length !== 0) {
-      allIds.forEach((id) => allCities.push(this.props.cities[id]))
+      allIds.forEach((id) => allCities.push(this.props.cities[id]));
       console.log(allCities);
       console.log(allIds);
     } else {
@@ -76,7 +76,7 @@ class CityLists extends React.Component {
           <Link to='/api/city/9' className='city'>Paris, FR</Link>
         </section>
         <div>
-          { 
+          {
             allCities.map((city, idx) => {
             return <li key={idx}>{city.name}   {city.image}</li>;
             })
