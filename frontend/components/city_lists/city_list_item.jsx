@@ -23,27 +23,29 @@ class CityListItem extends Component {
     });
 
     return (
-      <div className='city-show-page'>
-        <div className='city-show-page-header'>
-          <h2>{city.name}</h2>
+      <div>
+        <div className='city-show-page'>
+          <div className='city-show-page-header'>
+            <h2>{city.name}</h2>
+          </div>
+          <div className="city-show-page-image">
+            <img src={city.image} className="city-image"></img>
+          </div>
+          <section className='city-show-page-content'>
+            Restaurants:
+            <ul>
+              <li className=''>
+                restaurant1
+              </li>
+              <li className=''>
+                restaurant2
+              </li>
+            </ul>
+            <ul>
+              <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
+            </ul>
+          </section>
         </div>
-        <div className="city-show-page-image">
-          <img src={city.image} className="city-image"></img>
-        </div>
-        <section className='city-show-page-content'>
-          Restaurants:
-          <ul>
-            <li className=''>
-              restaurant1
-            </li>
-            <li className=''>
-              restaurant2
-            </li>
-          </ul>
-          <ul>
-            <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
-          </ul>
-        </section>
       </div>
     );
   }

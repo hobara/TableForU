@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import SignUpModalContainer from '../signup_form/signup_modal_container';
 import SignInModalContainer from '../signin_form/signin_modal_container';
 import { signin } from '../../actions/session_actions';
-import CityListsContainer from '../city_lists/city_lists_container';
 
 class GreetingForm extends React.Component {
   constructor(props) {
@@ -62,7 +61,7 @@ class GreetingForm extends React.Component {
           <span className='header-city-container'>
             <span className='header-city-content'>
               <select className='header-city-lists' id='location-list' >
-                <option >Choose Location</option>
+                <option defaultValue hidden >Choose Location</option>
                 <option value="/api/city/1">San Francisco</option>
                 <option value="/api/city/2">Los Angeles</option>
                 <option value="/api/city/3">Seattle</option>
@@ -86,9 +85,7 @@ class GreetingForm extends React.Component {
           </section>
         </section>
       </div>
-      <div className='main-background'>
-      </div>
-      <CityListsContainer />
+
     </div>
     );
   }
