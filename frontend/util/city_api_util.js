@@ -1,7 +1,7 @@
 export const createCity = (city) => (
   $.ajax({
     method: 'POST',
-    url: '/api/city',
+    url: '/api/cities',
     data: city
   })
 );
@@ -9,13 +9,13 @@ export const createCity = (city) => (
 export const fetchAllCity = () => (
   $.ajax({
     method: 'GET',
-    url: '/api/city',
+    url: '/api/cities',
   })
 );
 
 export const fetchSingleCity = (id) => (
   $.ajax({
     method: 'GET',
-    url: `/api/city/${id}`
+    url: `/api/cities/${id}`
   })
 );
