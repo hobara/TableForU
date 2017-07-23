@@ -4,33 +4,31 @@ import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllCity } from '../../actions/city_actions';
 
 class CityListItem extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    this.props.requestSingleCity(this.props.match.params.city_id);
-  }
-  //
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.city_id !== nextProps.match.params.city_id) {
-      this.props.requestSingleCity(nextProps.match.params.city_id);
-    }
+    this.props.requestAllCity();
   }
 
   render() {
-    console.log(this.props);
-    let singleCity = this.props.city;
-    if (singleCity) {
-
-    } else {
-      singleCity = { name: '', image:'' };
-    }
+    let city = { name: '', image:'', city_id: '' };
+    let id = this.props.match.params.city_id;
+    let allIds = Object.keys(this.props.cities);
+    allIds.forEach((assignedId) => {
+      if (this.props.cities[assignedId]['city_id'] === parseInt(id) ) {
+        city = this.props.cities[assignedId];
+      }
+    });
 
     return (
       <div className='city-show-page'>
         <div className='city-show-page-header'>
-          <h2>{singleCity.name}</h2>
+          <h2>{city.name}</h2>
         </div>
         <div className="city-show-page-image">
-          <img src={singleCity.image} className="city-image"></img>
+          <img src={city.image} className="city-image"></img>
         </div>
         <section className='city-show-page-content'>
           Restaurants:

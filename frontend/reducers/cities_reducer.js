@@ -5,7 +5,6 @@ const initialState = {};
 
 const CitiesReducer = (state = initialState, action) => {
   Object.freeze(state);
-  console.log(action);
   switch(action.type) {
     case RECEIVE_ALL_CITY:
       return action.cities;
