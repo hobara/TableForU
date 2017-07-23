@@ -6,18 +6,11 @@ import { requestAllCity } from '../../actions/city_actions';
 class CityLists extends React.Component {
   constructor(props) {
     super(props);
-
   }
-
-
 
   componentDidMount() {
     this.props.requestAllCity();
   }
-
-
-
-
 
   render() {
     console.log(this.props);
@@ -29,7 +22,6 @@ class CityLists extends React.Component {
     }
 
     return(
-
       // iterate over props.cities and generate a CityListItem (pass in city as a prop)
       //, and make them clickable links that route to `api/city/${city.id}`
       // <CityListItem city={city} request={this.props.requestSingleCity}
