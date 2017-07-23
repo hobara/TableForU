@@ -13,7 +13,9 @@ class CityListItem extends Component {
   }
 
   render() {
+    console.log(this.props);
     let city = { name: '', image:'', city_id: '' };
+    console.log(city);
     let id = this.props.match.params.city_id;
     let allIds = Object.keys(this.props.cities);
     allIds.forEach((assignedId) => {

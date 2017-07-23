@@ -22,3 +22,10 @@ osaka = City.create(name: "Osaka", city_id: 12, image: "https://res.cloudinary.c
 
 User.destroy_all
 geust = User.create(username: 'Guest', password: 'password', email: 'guest@email.com')
+
+
+Restaurant.destroy_all
+sf1 = Restaurant.create(name:"Mochia", address:"1469 18th St", city_name:"San Francisco", state:"CA", zip:94107,
+about:"Colorful, upbeat Peruvian restaurant serving a mix of tapas & classic regional entrees like ceviche.",
+image:"https://res.cloudinary.com/hobara/image/upload/v1500802761/sf1_jfa6bg.jpg",
+city_id: 1, cuisine: 8, price: 3, hours: 1, favorites: 0, rate: 0, owner_id: 1)
