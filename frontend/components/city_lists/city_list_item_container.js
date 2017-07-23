@@ -3,7 +3,7 @@ import CityListItem from './city_list_item';
 import { requestSingleCity } from '../../actions/city_actions';
 
 const mapStateToProps = (state) => ({
-  city: state.city
+  // city: state.city
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -7,7 +7,7 @@ const CitiesReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_CITY:
-      return merge([], action.cities);
+      return action.cities;
     default:
       return state;
   }
