@@ -4,8 +4,8 @@ export const RECEIVE_ALL_RESTAURANT = 'RECEIVE_ALL_RESTAURANT';
 export const RECEIVE_SINGLE_RESTAURANT = 'RECEIVE_SINGLE_RESTAURANT';
 export const RECEIVE_DELETE = 'RECEIVE_DELETE';
 
-export const requestAllRestaurant = (cityId) => dispatch => (
-  APIUtil.fetchAllRestaurant(cityId)
+export const requestAllRestaurant = () => dispatch => (
+  APIUtil.fetchAllRestaurant()
   .then(restaurants => dispatch(receiveAllRestaurant(restaurants)))
 );
 

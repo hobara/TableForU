@@ -268,18 +268,27 @@
 
 .city-show-page-header {
   text-decoration: none;
-  margin: 10px 0px 10px 10px;
+  margin: 0px 0px 0px 10px;
+  font-weight: 900;
+  // font-size: 24px;
 }
 
 .city-show-page-content {
   margin: 10px 0px 10px 10px;
 }
 
-.city-image {
+.city-show-page-image {
+  margin: 0px 0px 10px 0px;
   height: 500px;
-  repeat: no-repeat;
-  size: cover;
-    margin: 10px 0px 10px 0px;
+}
+
+.city-image {
+  height: 100%;
+  width: 100%;
+  // height: 500px;
+  // repeat: no-repeat;
+  // size: cover;
+  // margin: 10px 0px 10px 0px;
 }
 
 .go-back-to-home {

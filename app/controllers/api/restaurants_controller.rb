@@ -2,7 +2,6 @@ class Api::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    render '/api/restaurants/show'
   end
 
   def index

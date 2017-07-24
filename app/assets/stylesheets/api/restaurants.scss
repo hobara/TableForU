@@ -1,3 +1,206 @@
 // Place all the styles related to the Api::Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.city-restaurant-lists {
+  background-color: #F3F2F1;
+  // border: 1px solid red;
+  margin: 20px 20px 20px 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  border-radius: 3px;
+}
+
+
+.city-restaurant-header {
+  // border: 1px solid blue;
+  margin: 10px 0px 10px 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 24px;
+  font-weight: 900;
+  border-bottom: 1px solid #878787;
+}
+
+.city-restaurant-container {
+  // border: 1px solid blue;
+  margin: 10px 0px;
+}
+
+.restaurant-listitem {
+  // border: 1px solid green;
+  margin: 10px 10px;
+  padding: 10px 10px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.restaurant-listitem-left {
+  order: 1;
+  // border: 1px solid red;
+  width: 30%;
+  margin: 5px 5px;
+
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 100%
+}
+
+.restaurant-image:hover {
+  opacity: 0.80;
+}
+
+.restaurant-listitem-middle {
+  order: 2;
+  // border: 1px solid red;
+  margin: 5px 5px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-name-link {
+  text-decoration: none;
+  color: #444444;
+}
+
+.restaurant-name {
+  order: 1;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.restaurant-name:hover {
+  color: #E5656E;
+}
+
+.restaurant-cuisine {
+  order: 2;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+.restaurant-rate {
+  order: 3;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+.restaurant-price {
+  order: 4;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+.restaurant-listitem-right {
+  order: 3;
+  // border: 1px solid red;
+  margin: 5px 5px;
+  width: 50%;
+}
+
+.restaurant-review {
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.restaurant-showpage-header {
+  background-color: rgb(54,50,48);
+  height: 200px;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.showpage-header-left {
+  order: 1;
+  width: 20%;
+  margin: 30px 10px 30px 30px;
+  // border: 1px solid blue;
+  display: block;
+}
+
+.showpage-header-right {
+  order: 2;
+  width: 80%;
+  margin: 30px 30px 30px 10px;
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid blue;
+  padding: 10px 10px;
+
+}
+
+.showpage-restaurant-name {
+  order: 1;
+  // border: 1px solid green;
+  color: white;
+  font-size: 30px;
+  // font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.showpage-restaurant-rate {
+  order: 2;
+  // border: 1px solid green;
+  color: #C4BfB9;
+  margin-bottom: 10px;
+  color: #DAA520;
+}
+
+.showpage-restaurant-details {
+  order: 3;
+  // border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showpage-restaurant-details-left {
+  order: 1;
+  // border: 1px solid orange;
+  color: #C4BfB9;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showpage-restaurant-cuisine {
+  order: 1;
+  // border: 1px solid red;
+}
+
+.showpage-restaurant-city {
+  order: 2;
+  // border: 1px solid red;
+}
+
+.showpage-restaurant-price {
+  order: 3;
+  // border: 1px solid red;
+}
+
+
+.showpage-restaurant-details-right {
+  order: 2;
+  // border: 1px solid orange;
+  color: #E5656E;
+  width: 20%;
+  text-align: right;
+}
+
+.showpage-header-image {
+  width: 100%;
+  height: 100%;
+}

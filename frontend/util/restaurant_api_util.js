@@ -6,11 +6,10 @@ export const CreateRestaurant = (restaurant) => (
   })
 );
 
-export const fetchAllRestaurant = (cityId) => (
+export const fetchAllRestaurant = () => (
   $.ajax({
     method: 'GET',
-    url: '/api/restaurants',
-    data: {cityId}
+    url: '/api/restaurants'
   })
 );
 

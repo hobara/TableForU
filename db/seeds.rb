@@ -29,3 +29,8 @@ sf1 = Restaurant.create(name:"Mochia", address:"1469 18th St", city_name:"San Fr
 about:"Colorful, upbeat Peruvian restaurant serving a mix of tapas & classic regional entrees like ceviche.",
 image:"https://res.cloudinary.com/hobara/image/upload/v1500802761/sf1_jfa6bg.jpg",
 city_id: 1, cuisine: 8, price: 3, hours: 1, favorites: 0, rate: 0, owner_id: 1)
+
+sf2 = Restaurant.create(name:"Piccino", address:"1001 Minnesota St", city_name:"San Francisco", state:"CA", zip:94107,
+about:"Sister location to Piccino Cafe serving espresso drinks & housemade baked goods in sleek surrounds.",
+image:"https://res.cloudinary.com/hobara/image/upload/v1500862326/sf2_p0cba4.jpg",
+city_id: 1, cuisine: 2, price: 2, hours: 3, favorites: 0, rate: 0, owner_id: 1)

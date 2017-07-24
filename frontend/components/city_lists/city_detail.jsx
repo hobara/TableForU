@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllCity } from '../../actions/city_actions';
+import RestaurantListsContainer from '../restaurant_lists/restaurant_lists_container';
 
-class CityListItem extends Component {
+class CityDetail extends Component {
   constructor(props) {
     super(props);
   }
@@ -15,7 +16,6 @@ class CityListItem extends Component {
   render() {
     console.log(this.props);
     let city = { name: '', image:'', city_id: '' };
-    console.log(city);
     let id = this.props.match.params.city_id;
     let allIds = Object.keys(this.props.cities);
     allIds.forEach((assignedId) => {
@@ -33,6 +33,7 @@ class CityListItem extends Component {
           <div className="city-show-page-image">
             <img src={city.image} className="city-image"></img>
           </div>
+          <RestaurantListsContainer city={city}/>
           <section className='city-show-page-content'>
             Restaurants:
             <ul>
@@ -53,4 +54,4 @@ class CityListItem extends Component {
   }
 }
 
-export default CityListItem;
+export default CityDetail;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CityListItem from './city_list_item';
+import CityDetail from './city_detail';
 import { requestSingleCity, requestAllCity } from '../../actions/city_actions';
 
 const mapStateToProps = (state) => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CityListItem);
+)(CityDetail);

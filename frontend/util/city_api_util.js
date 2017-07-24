@@ -9,7 +9,7 @@ export const createCity = (city) => (
 export const fetchAllCity = () => (
   $.ajax({
     method: 'GET',
-    url: '/api/cities',
+    url: '/api/cities'
   })
 );
 
