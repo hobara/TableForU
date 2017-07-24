@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { requestAllCity } from '../../actions/city_actions';
-
+import AddRestaurant from '../restaurant_lists/add_restaurant';
 
 class CityLists extends Component {
 
@@ -71,7 +71,9 @@ class CityLists extends Component {
             <Link to='/api/cities/9' className='city'>Paris, FR</Link>
           </section>
           <br />
-
+        </div>
+        <div>
+          <AddRestaurant />
         </div>
       </div>
     );

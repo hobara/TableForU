@@ -17,43 +17,49 @@ class RestaurantDetail extends Component {
     console.log(this.props);
     return (
       <div>
+        <div className='restaurant-showpage-background'>
+        </div>
         <div className='restaurant-showpage-header'>
-            <section className='showpage-header-left'>
+            <span className='showpage-header-left'>
               <img src={this.props.restaurant.image} className='showpage-header-image'/>
-            </section>
+            </span>
             <section className='showpage-header-right'>
               <section className='showpage-restaurant-name'>{this.props.restaurant.name}</section>
               <section className='showpage-restaurant-rate'>Rate: {this.props.restaurant.rate}</section>
               <section className='showpage-restaurant-details'>
                 <span className='showpage-restaurant-details-left'>
-                  <span className='showpage-restaurant-cuisine'>Type: {this.props.restaurant.cuisine}</span>
-                  <span className='showpage-restaurant-city'>City: {this.props.restaurant.city_name}</span>
-                  <span className='showpage-restaurant-price'>Price: {this.props.restaurant.price}</span>
+                    Type: {this.props.restaurant.cuisine}  |
+                    City: {this.props.restaurant.city_name}  |
+                    Price: {this.props.restaurant.price}
                 </span>
                 <span className='showpage-restaurant-details-right'>
-                  <span className='showpage-restaurant-favorite'>Favorites: {this.props.restaurant.favorites}</span>
+                  Favorites: {this.props.restaurant.favorites}
                 </span>
               </section>
             </section>
         </div>
         <div className='restaurant-showpage-nav-link'>
-
+          restaurant showpage nav link container
         </div>
         <div className='restaurant-showpage-reservation'>
-
+          restaurant showpage reservation container
         </div>
         <div className='restaurant-showpage-about'>
-
+          <section className='restaurant-showpage-about-header'>
+            <h2>About {this.props.restaurant.name}</h2>
+          </section>
+          <section className='restaurant-showpage-about-text'>
+            {this.props.restaurant.about}
+          </section>
+          <section className='restaurant-showpage-about-map'>
+            <span>**Google Map Container**</span>
+          </section>
         </div>
-        <div className='restaurant-showpage-photo'>
-
-        </div>
+        <img src={this.props.restaurant.image} className='restaurant-showpage-photo'/>
         <div className='restaurant-showpage-reviews'>
-
+          review...coming soon
         </div>
-
-
-        Restaurant Show Page!
+        <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
       </div>
     );
   }
