@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  validates :user_id, :restaurant_id, :reservation_id, :rate, :comment, null: false
+  validates :user, :restaurant, :reservation, :rate, :comment, presence: true
 
   belongs_to :reservation,
     primary_key: :id,
@@ -11,7 +11,7 @@ class Review < ApplicationRecord
     source: :user
 
   has_one :restaurant,
-    thourgh: :reservation,
+    through: :reservation,
     source: :restaurant
 
 end
