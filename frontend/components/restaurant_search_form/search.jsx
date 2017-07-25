@@ -15,6 +15,7 @@ class SearchForm extends Component {
     // if (allIds.length !== 0) {
     //   allIds.forEach((id) => allCities.push(this.props.cities[id]));
     // }
+    let today = new Date().toJSON().slice(0,10);
 
     return(
       // iterate over props.cities and generate a CityListItem (pass in city as a prop)
@@ -25,9 +26,9 @@ class SearchForm extends Component {
           <h3>Make restaurant reservations the easy way</h3>
         </div>
         <div className='search-bar'>
-          <select className='search-seats'>
+          <select className='search-seats' defaultValue='2'>
             <option value='1'>1 person</option>
-            <option selected value='2'>2 people</option>
+            <option value='2'>2 people</option>
             <option value='3'>3 people</option>
             <option value='4'>4 people</option>
             <option value='5'>5 people</option>
@@ -37,7 +38,7 @@ class SearchForm extends Component {
             <option value='9'>9 people</option>
             <option value='10'>10 people</option>
           </select>
-          <input type='date' className='search-date'/>
+          <input type='date' className='search-date' defaultValue={today}/>
           <select className='search-time'>
             <option value='6'>6:00 PM</option>
             <option value='7'>7:00 PM</option>

@@ -12,7 +12,6 @@ class CreateRestaurant < ActiveRecord::Migration[5.1]
       t.integer :cuisine, null: false
       t.integer :price, null: false
       t.integer :hours, null: false
-      t.integer :favorites, null: false
       t.integer :rate, null: false
       t.integer :owner_id
     end

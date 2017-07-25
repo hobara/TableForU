@@ -41,8 +41,8 @@
 | id | integer | not null, primary key |
 | user_id | integer | not null, foreign key |
 | restaurant_id | integer | not null, foreign key |
-| time | time | not null |
-| date | date | not null |
+| time | integer | not null |
+| date | string | not null |
 | seats | integer | not null |
 
 <h3>favorite</h3>

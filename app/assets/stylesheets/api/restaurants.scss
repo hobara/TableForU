@@ -5,11 +5,12 @@
 .city-restaurant-lists {
   background-color: #F3F2F1;
   // border: 1px solid red;
-  margin: 20px 20px 20px 20px;
+  margin: 40px 20px 20px 40px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   border-radius: 3px;
+  max-width: 1300px;
 }
 
 
@@ -551,50 +552,93 @@
 }
 
 .search-bar {
-  margin: 20px 20px 40px 20px;
+  margin: 20px 40px 40px 40px;
   align-items: center;
   display: flex;
   justify-content: center;
+  border: 1px solid #DBD9D5;
+  border-radius: 3px;
 }
 
 .search-seats {
-  text-decoration: none;
-  height: 53px;
+  height: 46px;
   width: 16%;
-  font-size: 16px;
+  font-size: 18px;
+  color: #666666;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: white;
+  padding: 0;
+  border-width: 0;
+  border-radius: 0px;
+}
+
+.search-seats:hover {
+  cursor: pointer;
 }
 
 .search-date {
-  height: 50px;
-  width: 16%;
-  font-size: 16px;
-  border-radius: 3px;
+  height: 46px;
+  width: 20%;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #666666;
+  border-radius: 0px;
+  border-width: 0;
+  border-left: 1px solid #DBD9D5;
+  border-right: 1px solid #DBD9D5;
+  padding-left: 10px;
 }
 
+.search-date:hover {
+  cursor: pointer;
+}
+
+
 .search-time {
-  height: 53px;
-  width: 16%;
-  font-size: 16px;
+  height: 46px;
+  width: 18%;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #666666;
+  background-color: white;
+  border-radius: 0px;
+  border-width: 0;
+  // border: 1px solid #DBD9D5;
+  padding: 0;
+}
+
+.search-time:hover {
+  cursor: pointer;
 }
 
 .search-restaurant {
-  height: 50px;
-  width: 26%;
-  font-size: 16px;
-  border-radius: 3px;
+  height: 46px;
+  width: 30%;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 0px;
+  border-width: 0;
+  border-left: 1px solid #DBD9D5;
+  padding-left: 20px;
+}
+
+.search-restaurant:hover {
+  cursor: pointer;
 }
 
 .search-find-button {
-  height: 50px;
+  height: 49px;
   font-size: 14px;
   background-color: #DA3743;
   color: white;
+  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 16%;
   min-width: 30px;
-  border-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .search-find-button:hover {

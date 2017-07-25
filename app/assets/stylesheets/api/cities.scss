@@ -24,7 +24,8 @@ h4 {
   font-size: 24px;
   // font-weight: 900;
   border: 1px solid #ECECEC;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .row-1 {
@@ -332,6 +333,11 @@ h4 {
 //   color: #E5656E;
 //   cursor: pointer;
 // }
+
+.city-show-page {
+  max-width: 1600px;
+}
+
 
 .city-show-page-header {
   text-decoration: none;

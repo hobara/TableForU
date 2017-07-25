@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllRestaurant, requestSingleRestaurant } from '../../actions/restaurant_actions';
+import ReservationForm from './reservation_form';
 
 
 class RestaurantDetail extends Component {
@@ -39,7 +40,7 @@ class RestaurantDetail extends Component {
                     Price: {this.props.restaurant.price}
                 </span>
                 <span className='showpage-restaurant-details-right'>
-                  Favorites: {this.props.restaurant.favorites}
+                  Favorites
                 </span>
               </section>
             </section>
@@ -54,6 +55,7 @@ class RestaurantDetail extends Component {
             </nav>
             <div className='restaurant-showpage-main-content'>
               <div ref={ el => this.reservationSection = el } className='restaurant-showpage-reservation' name='reservation'>
+                <ReservationForm />
               </div>
               <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
                 <section className='restaurant-showpage-about-header'>

@@ -51,8 +51,7 @@ class AddRestaurant extends Component {
       cuisine: 0,
       price: 0,
       hours: 0,
-      rate: 0,
-      favorites: 0
+      rate: 0
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -76,10 +75,12 @@ class AddRestaurant extends Component {
   }
 
   handleSubmit(event) {
-    console.error('Here is my props', this.props);
     event.preventDefault();
     const newRestaurant = this.state;
     this.props.createRestaurant({restaurant: newRestaurant});
+    console.err('hey1', this.props);
+    this.props.requestAllRestaurant();
+    console.err('hey2', this.props);
   }
 
   renderErrors() {

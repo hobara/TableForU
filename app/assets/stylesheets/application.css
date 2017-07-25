@@ -28,6 +28,7 @@ h6 {
   background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500917305/back_xho0xd.jpg');
   height: 400px;
   width: 100%;
+  /*max-width: 1600px;*/
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -47,6 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 10px 0px 0px 0px;
+  max-width: 1600px;
   /*border: 3px solid black;*/
 }
 

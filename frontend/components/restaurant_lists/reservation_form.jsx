@@ -21,48 +21,10 @@ class ReservationForm extends Component {
       //, and make them clickable links that route to `api/city/${city.id}`
       // <CityListItem city={city} request={this.props.requestSingleCity}
       <div>
-        <div className='main-background'>
+        <div className='reservation-header'>
+          <h3>Make a reservation</h3>
         </div>
-        <div className='city-lists'>
-          <section className='city-lists-title'>
-            Featured Cities
-          </section>
-          <section id='featured-cities'>
-            <div className='row-1'>
-              <Link to={'/api/cities/6'}  className='city-lists-1-1'>New York</Link>
-              <Link to={'/api/cities/2'} className='city-lists-1-2'>Los Angeles</Link>
-              <Link to={'/api/cities/4'} className='city-lists-1-3'>Chicago</Link>
-            </div>
-            <div className='row-2'>
-              <Link to='/api/cities/1' className='city-lists-2-1'>San Francisco</Link>
-              <Link to='/api/cities/7' className='city-lists-2-2'>Washington DC</Link>
-              <Link to='/api/cities/5' className='city-lists-2-3'>Austin</Link>
-            </div>
-          </section>
 
-
-          <section className='city-lists-title'>
-            International Cities
-          </section>
-          <section className='international-cities'>
-            <div className='row-3'>
-              <Link to='/api/cities/3' className='city-lists-3-1'>London, UK</Link>
-              <Link to='/api/cities/9' className='city-lists-3-2'>Paris, FR</Link>
-              <Link to='/api/cities/8' className='city-lists-3-3'>Toronto, CA</Link>
-            </div>
-            <div className='row-4'>
-              <Link to='/api/cities/10' className='city-lists-4-1'>Singapore, SG</Link>
-              <Link to='/api/cities/11' className='city-lists-4-2'>Tokyo, JP</Link>
-              <Link to='/api/cities/12' className='city-lists-4-3'>Osaka, JP</Link>
-            </div>
-          </section>
-
-
-          <br />
-        </div>
-        <div>
-          <AddRestaurantContainer />
-        </div>
       </div>
     );
   }
