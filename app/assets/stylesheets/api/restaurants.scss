@@ -116,21 +116,24 @@
 }
 
 .restaurant-showpage-background {
-
-}
-
-.restaurant-showpage-header {
   background-color: rgb(54,50,48);
   height: 200px;
   margin: 20px 0px;
+}
+
+.restaurant-showpage-header {
+  padding-top: 20px;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 .showpage-header-left {
   order: 1;
   width: 20%;
+  min-width: 148px;
+  max-width: 148px;
   margin: 40px 30px 30px 60px;
+
   // border: 1px solid blue;
   display: block;
 }
@@ -138,11 +141,13 @@
 .showpage-header-right {
   order: 2;
   width: 80%;
+  min-width: 400px;
+  max-width: 800px;
   margin: 40px 60px 30px 10px;
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
-  padding: 10px 10px;
+  // border: 1px solid blue;
+  padding: 20px 10px;
 
 }
 
@@ -162,16 +167,21 @@
   color: #DAA520;
 }
 
+.restaurant-showpage-main-background {
+  background-color: #F3F2F1;
+}
+
+
 .showpage-restaurant-details {
   order: 3;
-  border: 1px solid green;
+  // border: 1px solid green;
   display: flex;
   justify-content: space-between;
 }
 
 .showpage-restaurant-details-left {
   order: 1;
-  border: 1px solid orange;
+  // border: 1px solid orange;
   color: #C4BfB9;
   width: 50%;
   font-size: 14px;
@@ -180,7 +190,7 @@
 
 .showpage-restaurant-details-right {
   order: 2;
-  border: 1px solid orange;
+  // border: 1px solid orange;
   color: #E5656E;
   width: 20%;
   text-align: right;
@@ -190,12 +200,8 @@
 .showpage-header-image {
   width: 100%;
   height: 100%;
-}
-
-.restaurant-showpage-nav-link {
-  border: 1px solid pink;
-  height: 50px;
-  margin: 10px 10px;
+  border-radius: 8px;
+  margin-top: 22px;
 }
 
 .restaurant-showpage-reservation {
@@ -242,7 +248,7 @@
 
 .add-restaurant-container {
   margin: 0px 40px 40px 40px;
-  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500880595/addRes_tvysrj.jpg');
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500949025/addRes_tvysrj.jpg');
   height: 400px;
   width: auto;
   max-width: 1020px;
@@ -283,6 +289,315 @@
 }
 
 .add-restaurant-button:hover {
-  background-color: #c4313c;
+  background-color: #d12733;
+  cursor: pointer;
+}
+
+.add-restaurant-form {
+
+}
+
+.add-restaurant-form-header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0px 20px 20px 20px;
+  padding: 20px 0px 20px 0px;
+  border-bottom: 1px solid #DBD9D5;
+}
+
+.add-restaurant-form-row {
+  margin: 0px 20px 0px 20px;
+  // border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.restaurant-input-left {
+  margin: 5px 10px 5px 20px;
+  height: 30px;
+  width: 200px;
+}
+
+.restaurant-input-right {
+  margin: 5px 20px 5px 10px;
+  height: 30px;
+  width: 200px;
+}
+.restaurant-input-textarea {
+  margin: 5px 20px 5px 20px;
+  height: 60px;
+  width: 425px;
+}
+
+.restaurant-input-type {
+  margin: 5px 10px 5px 20px;
+  height: 30px;
+  width: 200px;
+}
+.restaurant-input-price {
+  margin: 5px 20px 5px 10px;
+  height: 30px;
+  width: 200px;
+}
+.restaurant-input-hours {
+  margin: 5px 10px 5px 20px;
+  height: 30px;
+  width: 200px;
+}
+.restaurant-input-cityid {
+  margin: 5px 20px 5px 10px;
+  height: 30px;
+  width: 200px;
+}
+
+.add-restaurant-errors {
+  margin: 10px 20px;
+  font-size: 12px;
+  color: red;
+}
+
+
+.restaurant-input-submit {
+  height: 20px;
+  width: 200px;
+  border-radius: 3px;
+  margin: 20px 10px 20px 10px;
+  padding: 10px 10px 10px 10px;
+  background-color: #DA3743;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.restaurant-input-submit:hover {
+  background-color: #d12733;
+  cursor: pointer;
+}
+
+
+.restaurant-showpage-main {
+  margin: 20px 40px 20px 40px;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-showpage-nav-link {
+  order: 1;
+  background-color: white;
+  width: 10%;
+  height: auto;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  // border: 1px solid red;
+  margin: 30px 10px;
+}
+
+.page-nav-link {
+  margin: 20px 0px 10px 20px;
+  font-size: 18px;
+  // font-weight: 300;
+}
+
+.page-nav-link:hover {
+  color: #DA3743;
+  cursor: pointer;
+}
+
+
+.restaurant-showpage-main-content {
+  order: 2;
+  width: 70%;
+  margin-top: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+}
+
+.restaurant-showpage-reservation {
+  order: 1;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+  height: 200px;
+  // border: 1px solid green;
+}
+
+
+.restaurant-showpage-content-about {
+  order: 2;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+  height: 200px;
+  // border: 1px solid green;
+}
+
+.restaurant-showpage-photos {
+  order: 3;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+  height: 200px;
+  // border: 1px solid green;
+}
+
+.restaurant-showpage-photo {
+  background-color: white;
+  border-radius: 5px;
+  width: auto;
+  height: 90%;
+
+}
+
+.restaurant-showpage-reviews {
+  order: 4;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+  height: 200px;
+  // border: 1px solid green;
+}
+
+
+.restaurant-showpage-detail-right {
+  order: 3;
+  background-color: white;
+  border-radius: 5px;
+  width: 20%;
+  height: auto;
+  margin: 30px 10px;
+  // width: 100px;
+  height: 500px;
+  // border: 1px solid red;
+}
+
+.detail-right-type {
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500944283/cuisinelogo_vjqu4u.png');
+  background-repeat: no-repeat;
+  // background-size: contain;
+  margin: 20px 0px 10px 20px;
+  padding-left: 30px;
+  // font-weight: 600;
+  font-size: 18px;
+}
+.detail-right-hours {
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500944278/hourslogo_v5zl9s.png');
+  background-repeat: no-repeat;
+  // background-size: contain;
+  margin: 20px 0px 10px 20px;
+  padding-left: 30px;
+  // font-weight: 600;
+  font-size: 18px;
+}
+.detail-right-phone {
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500944273/phonelogo_xll3ls.png');
+  background-repeat: no-repeat;
+  // background-size: contain;
+  margin: 20px 0px 10px 20px;
+  padding-left: 30px;
+  // font-weight: 600;
+  font-size: 18px;
+}
+.detail-right-price {
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500944270/pricelogo_rug4uu.png');
+  background-repeat: no-repeat;
+  // background-size: contain;
+  margin: 20px 0px 10px 20px;
+  padding-left: 30px;
+  // font-weight: 600;
+  font-size: 18px;
+}
+.detail-right-web {
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500944267/weblogo_y2kn6m.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 20px 0px 10px 20px;
+  padding-left: 30px;
+  // font-weight: 600;
+  font-size: 18px;
+}
+
+.detail-right-data {
+  margin: 20px 0px 10px 40px;
+  font-size: 16px;
+}
+
+.detail-right-web-data {
+  margin: 20px 0px 10px 40px;
+  font-size: 14px;
+}
+
+.main-search-container {
+  padding-top: 260px;
+}
+
+.search-container {
+  background-color: white;
+  border-radius: 5px;
+  margin: 40px 40px 20px 40px;
+  max-width: 1020px;
+  border: 1px solid #ECECEC;
+}
+
+.search-header {
+  font-size: 24px;
+  margin: 20px 20px;
+}
+
+.search-bar {
+  margin: 20px 20px 40px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.search-seats {
+  text-decoration: none;
+  height: 53px;
+  width: 16%;
+  font-size: 16px;
+}
+
+.search-date {
+  height: 50px;
+  width: 16%;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.search-time {
+  height: 53px;
+  width: 16%;
+  font-size: 16px;
+}
+
+.search-restaurant {
+  height: 50px;
+  width: 26%;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.search-find-button {
+  height: 50px;
+  font-size: 14px;
+  background-color: #DA3743;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16%;
+  min-width: 30px;
+  border-radius: 3px;
+}
+
+.search-find-button:hover {
+  background-color: #da2734;
   cursor: pointer;
 }

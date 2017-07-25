@@ -28,7 +28,7 @@ class CityDetail extends Component {
       <div>
         <div className='city-show-page'>
           <div className='city-show-page-header'>
-            <h2>{city.name}</h2>
+            <h1>{city.name}</h1>
           </div>
           <div className="city-show-page-image">
             <img src={city.image} className="city-image"></img>

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { requestAllCity } from '../../actions/city_actions';
 import AddRestaurantContainer from '../restaurant_lists/add_restaurant_container';
-import SearchForm from '../restaurant_search_form/search';
 
-class CityLists extends Component {
+class ReservationForm extends Component {
 
   // componentDidMount() {
   //   return this.props.requestAllCity();
@@ -21,14 +20,12 @@ class CityLists extends Component {
       // iterate over props.cities and generate a CityListItem (pass in city as a prop)
       //, and make them clickable links that route to `api/city/${city.id}`
       // <CityListItem city={city} request={this.props.requestSingleCity}
-      <div className='main-background'>
-        <div className='main-search-container'>
-          <SearchForm />
+      <div>
+        <div className='main-background'>
         </div>
-
         <div className='city-lists'>
           <section className='city-lists-title'>
-            <h4>Featured Cities</h4>
+            Featured Cities
           </section>
           <section id='featured-cities'>
             <div className='row-1'>
@@ -45,7 +42,7 @@ class CityLists extends Component {
 
 
           <section className='city-lists-title'>
-            <h4>International Cities</h4>
+            International Cities
           </section>
           <section className='international-cities'>
             <div className='row-3'>
@@ -72,4 +69,4 @@ class CityLists extends Component {
 }
 
 
-export default CityLists;
+export default ReservationForm;

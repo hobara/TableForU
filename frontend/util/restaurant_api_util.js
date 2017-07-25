@@ -1,4 +1,4 @@
-export const CreateRestaurant = (restaurant) => (
+export const createRestaurant = (restaurant) => (
   $.ajax({
     method: 'POST',
     url: '/api/restaurants',

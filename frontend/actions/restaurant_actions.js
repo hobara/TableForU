@@ -3,6 +3,8 @@ import * as APIUtil from '../util/restaurant_api_util';
 export const RECEIVE_ALL_RESTAURANT = 'RECEIVE_ALL_RESTAURANT';
 export const RECEIVE_SINGLE_RESTAURANT = 'RECEIVE_SINGLE_RESTAURANT';
 export const RECEIVE_DELETE = 'RECEIVE_DELETE';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const requestAllRestaurant = () => dispatch => (
   APIUtil.fetchAllRestaurant()
@@ -19,16 +21,16 @@ export const requestSingleRestaurant = (id) => dispatch => (
 
 export const createRestaurant = (restaurant) => dispatch => (
   APIUtil.createRestaurant(restaurant)
-  .then(newRes => {
-    dispatch(receiveSingleRestaurant(newRes));
-    return newRes;
-  })
+  .then(newRestaurant => {
+    dispatch(receiveSingleRestaurant(newRestaurant));
+    dispatch(clearErrors());
+  }, err => (dispatch(receiveErrors(err.responseJSON))))
 );
 
 export const updateRestaurant = (restaurant) => dispatch => (
   APIUtil.updateRestaurant(restaurant)
-  .then(newRes => {
-    dispatch(receiveSingleRestaurant(newRes));
+  .then(newRestaurant => {
+    dispatch(receiveSingleRestaurant(newRestaurant));
   })
 );
 
@@ -51,4 +53,13 @@ export const receiveSingleRestaurant = (restaurant) => ({
 
 export const receiveDelete = () => ({
   type: RECEIVE_DELETE
+});
+
+export const receiveErrors = (errors) => ({
+  type: RECEIVE_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });

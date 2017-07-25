@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+
 h6 {
   margin: 0;
   margin-top: 10px;
@@ -23,8 +25,9 @@ h6 {
 
 .main-background {
   margin: 10px 0px 10px 0px;
-  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500623891/5_hqiy2f.jpg');
-  height: 500px;
+  background-image: url('https://res.cloudinary.com/hobara/image/upload/v1500917305/back_xho0xd.jpg');
+  height: 400px;
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
 }

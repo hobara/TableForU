@@ -5,6 +5,7 @@ const initialState = {};
 
 const RestaurantReducer = (state = initialState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch(action.type) {
     case RECEIVE_SINGLE_RESTAURANT:
       return action.restaurant;

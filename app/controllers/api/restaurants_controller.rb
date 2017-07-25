@@ -13,7 +13,7 @@ class Api::RestaurantsController < ApplicationController
     if @restaurant.save
       render '/api/restaurants/show'
     else
-      render json: @restaurants.errors.full_messages, status: 422
+      render json: @restaurant.errors.full_messages, status: 422
     end
   end
 

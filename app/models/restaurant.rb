@@ -7,6 +7,6 @@ class Restaurant < ApplicationRecord
     primary_key: :city_id,
     foreign_key: :city_id,
     class_name: :City
-
+  # has_many :photos
 
 end

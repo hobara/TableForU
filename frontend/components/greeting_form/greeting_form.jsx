@@ -64,13 +64,13 @@ class GreetingForm extends React.Component {
                 <option defaultValue hidden >Choose Location</option>
                 <option value="/api/cities/1">San Francisco</option>
                 <option value="/api/cities/2">Los Angeles</option>
-                <option value="/api/cities/3">Seattle</option>
                 <option value="/api/cities/4">Chicago</option>
                 <option value="/api/cities/5">Austin</option>
                 <option value="/api/cities/6">New York</option>
                 <option value="/api/cities/7">Washington DC</option>
-                <option value="/api/cities/8">Toronto</option>
+                <option value="/api/cities/3">London</option>
                 <option value="/api/cities/9">Paris</option>
+                <option value="/api/cities/8">Toronto</option>
                 <option value="/api/cities/10">Singapore</option>
                 <option value="/api/cities/11">Tokyo</option>
                 <option value="/api/cities/12">Osaka</option>
