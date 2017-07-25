@@ -12,8 +12,8 @@ const App = () => (
   <div>
     <GreetingContainer />
     <Route exact path='/' component={CityListsContainer} />
-    <Route exact path='/api/cities/:city_id' component={CityDetailContainer} />
-    <Route exact path='/api/restaurants/:restaurant_id' component={RestaurantDetailContainer} />
+    <Route exact path='/cities/:city_id' component={CityDetailContainer} />
+    <ProtectedRoute exact path='/restaurants/:restaurant_id' component={RestaurantDetailContainer} />
 
   </div>
 );

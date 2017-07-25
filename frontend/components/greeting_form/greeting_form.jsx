@@ -62,18 +62,18 @@ class GreetingForm extends React.Component {
             <span className='header-city-content'>
               <select className='header-city-lists' id='location-list' >
                 <option defaultValue hidden >Choose Location</option>
-                <option value="/api/cities/1">San Francisco</option>
-                <option value="/api/cities/2">Los Angeles</option>
-                <option value="/api/cities/4">Chicago</option>
-                <option value="/api/cities/5">Austin</option>
-                <option value="/api/cities/6">New York</option>
-                <option value="/api/cities/7">Washington DC</option>
-                <option value="/api/cities/3">London</option>
-                <option value="/api/cities/9">Paris</option>
-                <option value="/api/cities/8">Toronto</option>
-                <option value="/api/cities/10">Singapore</option>
-                <option value="/api/cities/11">Tokyo</option>
-                <option value="/api/cities/12">Osaka</option>
+                <option value="/cities/1">San Francisco</option>
+                <option value="/cities/2">Los Angeles</option>
+                <option value="/cities/4">Chicago</option>
+                <option value="/cities/5">Austin</option>
+                <option value="/cities/6">New York</option>
+                <option value="/cities/7">Washington DC</option>
+                <option value="/cities/3">London</option>
+                <option value="/cities/9">Paris</option>
+                <option value="/cities/8">Toronto</option>
+                <option value="/cities/10">Singapore</option>
+                <option value="/cities/11">Tokyo</option>
+                <option value="/cities/12">Osaka</option>
               </select>
               <span type='submit' onClick={this.goCityPage} className='header-button' >Go</span>
             </span>

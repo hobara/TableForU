@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import AddRestaurant from './add_restaurant';
 import { requestAllRestaurant, requestSingleRestaurant, createRestaurant } from '../../actions/restaurant_actions';
 
@@ -14,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   createRestaurant: (restaurant) => dispatch(createRestaurant(restaurant))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddRestaurant);
+)(AddRestaurant));

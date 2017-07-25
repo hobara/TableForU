@@ -3,6 +3,7 @@ import CityDetail from './city_detail';
 import { requestSingleCity, requestAllCity } from '../../actions/city_actions';
 
 const mapStateToProps = (state) => ({
+  city: state.city,
   cities: state.cities
 });
 

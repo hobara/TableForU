@@ -58,6 +58,7 @@ class AddRestaurant extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.goToShowpage = this.goToShowpage.bind(this);
   }
 
   closeModal() {
@@ -74,13 +75,16 @@ class AddRestaurant extends Component {
     });
   }
 
+  goToShowpage() {
+    const { id } = this.props.restaurant;
+    this.props.history.push(`/restaurants/${id}`);
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const newRestaurant = this.state;
-    this.props.createRestaurant({restaurant: newRestaurant});
-    console.err('hey1', this.props);
-    this.props.requestAllRestaurant();
-    console.err('hey2', this.props);
+    this.props.createRestaurant({restaurant: newRestaurant}).then( () =>
+    { this.goToShowpage(); } );
   }
 
   renderErrors() {
@@ -96,8 +100,6 @@ class AddRestaurant extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     return(
       <div className='add-restaurant-container'>
         <section className='add-restaurant-header'>
@@ -195,7 +197,7 @@ class AddRestaurant extends Component {
               </select>
             </section>
             <section>
-              <p className='add-restaurant-errors'>{this.renderErrors()}</p>
+              <section className='add-restaurant-errors'>{this.renderErrors()}</section>
             </section>
             <section className='add-restaurant-form-row'>
               <span className='restaurant-input-submit' onClick={this.handleSubmit}>Add Restaurant</span>

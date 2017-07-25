@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { requestAllCity } from '../../actions/city_actions';
-import AddRestaurantContainer from '../restaurant_lists/add_restaurant_container';
+import { requestAllRestaurant } from '../../actions/city_actions';
 
 class SearchForm extends Component {
 
-  // componentDidMount() {
-  //   return this.props.requestAllCity();
-  // }
+  componentDidMount() {
+    this.props.requestAllRestaurant();
+  }
 
   render() {
-    // const allIds = Object.keys(this.props.cities);
-    // let allCities = [ {name: '', image: ''} ];
-    // if (allIds.length !== 0) {
-    //   allIds.forEach((id) => allCities.push(this.props.cities[id]));
-    // }
+    console.log(this.props);
     let today = new Date().toJSON().slice(0,10);
 
     return(
-      // iterate over props.cities and generate a CityListItem (pass in city as a prop)
-      //, and make them clickable links that route to `api/city/${city.id}`
-      // <CityListItem city={city} request={this.props.requestSingleCity}
       <div className='search-container'>
         <div className='search-header'>
           <h3>Make restaurant reservations the easy way</h3>

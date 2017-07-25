@@ -14,25 +14,7 @@ class RestaurantLists extends Component {
   }
 
   render() {
-    console.log(this.props);
     let restaurantList = [];
-    // [{
-    //   name: "",
-    //   address: "",
-    //   city_name: "",
-    //   state: "",
-    //   zip: 0,
-    //   about: "",
-    //   image: "",
-    //   city_id: 0,
-    //   cuisine: 0,
-    //   price: 0,
-    //   hours: 0,
-    //   favorites: 0,
-    //   rate: 0,
-    //   owner_id: 1
-    // }];
-    // let cityId;
     const allIds = Object.keys(this.props.restaurants);
     allIds.forEach((assignedId) => {
       // console.log(this.props.restaurants[assignedId]);
@@ -52,12 +34,12 @@ class RestaurantLists extends Component {
           {restaurantList.map((restaurant, idx) =>
             <section key={idx} className='restaurant-listitem'>
               <section className='restaurant-listitem-left'>
-                <Link to={`/api/restaurants/${Object.keys(restaurant)[0]}`} restaurant={restaurant}>
+                <Link to={`/restaurants/${Object.keys(restaurant)[0]}`} restaurant={restaurant}>
                   <img className='restaurant-image' src={Object.values(restaurant)[0].image}/>
                 </Link>
               </section>
               <section className='restaurant-listitem-middle'>
-                <Link to={`/api/restaurants/${Object.keys(restaurant)[0]}`} className='restaurant-name-link' restaurant={restaurant}>
+                <Link to={`/restaurants/${Object.keys(restaurant)[0]}`} className='restaurant-name-link' restaurant={restaurant}>
                   <span className='restaurant-name'>{Object.values(restaurant)[0].name}</span>
                 </Link>
                 <span className='restaurant-cuisine'>Type:{Object.values(restaurant)[0].cuisine}</span>
