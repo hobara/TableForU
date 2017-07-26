@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllCity } from '../../actions/city_actions';
 import RestaurantListsContainer from '../restaurant_lists/restaurant_lists_container';
+import SearchFormContainer from '../restaurant_search_form/search_container';
 
 class CityDetail extends Component {
   constructor(props) {
@@ -23,6 +24,9 @@ class CityDetail extends Component {
         city = this.props.cities[assignedId];
       }
     });
+    const style = {
+      backgroundImage: `url(${city.image})`
+    };
 
     return (
       <div>
@@ -30,10 +34,14 @@ class CityDetail extends Component {
           <div className='city-show-page-header'>
             <h1>{city.name}</h1>
           </div>
-          <div className="city-show-page-image">
-            <img src={city.image} className="city-image"></img>
+          <div className='city-show-page-image' style={style} >
+            <div className='city-show-page-search'>
+              <SearchFormContainer />
+            </div>
           </div>
-          <RestaurantListsContainer city={city}/>
+          <div className='city-show-page-restaurant'>
+            <RestaurantListsContainer city={city}/>
+          </div>
           <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
         </div>
       </div>
