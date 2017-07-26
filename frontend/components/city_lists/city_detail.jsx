@@ -25,7 +25,9 @@ class CityDetail extends Component {
       }
     });
     const style = {
-      backgroundImage: `url(${city.image})`
+      backgroundImage: `url(${city.image})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover'
     };
 
     return (

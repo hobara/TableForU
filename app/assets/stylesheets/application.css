@@ -270,6 +270,21 @@ body {
   color: #c4313c;
   cursor: pointer;
 }
+.back-to-signup {
+  font-size: 12px;
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+}
+
+.back-to-signup-button {
+  text-decoration: none;
+  color: #DA3743;
+}
+
+.back-to-signup-button:hover {
+  color: #c4313c;
+  cursor: pointer;
+}
 
 .signup-modal-container {
   background-color: #f5f5f5;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signin, logout, signup, receiveErrors } from '../../actions/session_actions';
+import { signin, logout, signup, receiveErrors, clearErrors } from '../../actions/session_actions';
 import SignInModal from './signin_modal';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   signin: user => dispatch(signin(user)),
-  signup: user => dispatch(signup(user))
+  signup: user => dispatch(signup(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

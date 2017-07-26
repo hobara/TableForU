@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import SignUpModal from '../signup_form/signup_modal';
+import { clearErrors } from '../../actions/session_actions';
 
 const style = {
   overlay: {
@@ -49,12 +50,16 @@ class SignInModal extends React.Component {
         location: ''
       };
     }
+    this.state.errors = [];
+
     this.handleSignin = this.handleSignin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.update = this.update.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.clearErrors = clearErrors.bind(this);
   }
+
 
   closeModal() {
     this.setState({ modalOpen: '' });
@@ -94,6 +99,11 @@ class SignInModal extends React.Component {
     );
   }
 
+  clearErrors() {
+    this.state.clearErrors();
+  }
+
+
   modalContent() {
     if (this.state.modalOpen === 'signin') {
       return (
@@ -106,8 +116,13 @@ class SignInModal extends React.Component {
           <h6>{this.renderErrors()}</h6>
           <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
           <br />
-          <span className='back-to-login'>New to TableForU?
-            <span className='back-to-login-button' onClick={() => { contentLabel = 'signin'; this.openModal('signup');}}>  Create Accout</span>
+          <span className='back-to-signup'>New to TableForU?
+            <span className='back-to-signup-button'
+              onClick={() => {
+                contentLabel = 'signin';
+                this.openModal('signup');
+                this.setState({errors: []});
+              }}>  Create Accout</span>
           </span>
         </span>
       );

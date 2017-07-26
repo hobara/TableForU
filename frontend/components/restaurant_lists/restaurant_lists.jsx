@@ -32,6 +32,49 @@ const style = {
 
 let contentLabel = 'signin';
 
+const CUISINE_TYPE = {
+  1: 'American',
+  2: 'Italian',
+  3: 'French',
+  4: 'Mexican',
+  5: 'Japanese',
+  6: 'Chinese',
+  7: 'Thai',
+  8: 'Steakhouse',
+  9: 'Seafood',
+  10: 'Fusion'
+};
+
+const PRICE_TYPE = {
+  1: '$',
+  2: '$$',
+  3: '$$$',
+  4: '$$$$'
+};
+
+const PRICE_RANGE = {
+  1: '$20 and under',
+  2: '$30 and under',
+  3: '$31 to $50',
+  4: '$50 and over'
+};
+
+const HOURS_TYPE = {
+  1: '18:00 - 22:00',
+  2: '18:00 - 23:00',
+  3: '19:00 - 23:00',
+  4: '19:00 - 24:00'
+};
+
+const RATE_TYPE = {
+  0: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  1: '',
+  2: '',
+  3: '',
+  4: ''
+};
+
+
 class RestaurantLists extends Component {
 
   constructor(props) {
@@ -139,9 +182,9 @@ class RestaurantLists extends Component {
                 <span onClick={() => {this.openModal('signin'); contentLabel = 'signin';}} className='restaurant-name-link' >
                   <span className='restaurant-name'>{Object.values(restaurant)[0].name}</span>
                 </span>
-                <span className='restaurant-cuisine'>Type:{Object.values(restaurant)[0].cuisine}</span>
-                <span className='restaurant-rate'>Rate:{Object.values(restaurant)[0].rate}</span>
-                <span className='restaurant-price'>Price:{Object.values(restaurant)[0].price}</span>
+                <span className='restaurant-cuisine'>{CUISINE_TYPE[Object.values(restaurant)[0].cuisine]}</span>
+                <span className='restaurant-rate'><img src={RATE_TYPE[Object.values(restaurant)[0].rate]} /></span>
+                <span className='restaurant-price'>Price:{PRICE_TYPE[Object.values(restaurant)[0].price]}</span>
               </section>
               <section className='restaurant-listitem-right'>
                 <span className='restaurant-review'>Reviews coming soon...</span>
@@ -163,9 +206,9 @@ class RestaurantLists extends Component {
                 <Link to={`/restaurants/${Object.keys(restaurant)[0]}`} className='restaurant-name-link' restaurant={restaurant}>
                   <span className='restaurant-name'>{Object.values(restaurant)[0].name}</span>
                 </Link>
-                <span className='restaurant-cuisine'>Type:{Object.values(restaurant)[0].cuisine}</span>
-                <span className='restaurant-rate'>Rate:{Object.values(restaurant)[0].rate}</span>
-                <span className='restaurant-price'>Price:{Object.values(restaurant)[0].price}</span>
+                <span className='restaurant-cuisine'>{CUISINE_TYPE[Object.values(restaurant)[0].cuisine]}</span>
+                <span className='restaurant-rate'><img src={RATE_TYPE[Object.values(restaurant)[0].rate]} /></span>
+                <span className='restaurant-price'>Price:{PRICE_TYPE[Object.values(restaurant)[0].price]}</span>
               </section>
               <section className='restaurant-listitem-right'>
                 <span className='restaurant-review'>Reviews coming soon...</span>
@@ -200,7 +243,9 @@ class RestaurantLists extends Component {
             <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
             <br />
             <span className='back-to-login'>New to TableForU?
-              <span className='back-to-login-button' onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>  Create Accout</span>
+              <span className='back-to-login-button'
+                onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>
+                Create Accout</span>
             </span>
           </span>
         </Modal>

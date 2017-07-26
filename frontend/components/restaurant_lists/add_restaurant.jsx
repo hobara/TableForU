@@ -146,7 +146,6 @@ class AddRestaurant extends Component {
   }
 
   render() {
-    console.log(this.state);
     return(
       <div className='add-restaurant-container'>
         <section className='add-restaurant-header'>
