@@ -34,20 +34,7 @@ class CityDetail extends Component {
             <img src={city.image} className="city-image"></img>
           </div>
           <RestaurantListsContainer city={city}/>
-          <section className='city-show-page-content'>
-            Restaurants:
-            <ul>
-              <li className=''>
-                restaurant1
-              </li>
-              <li className=''>
-                restaurant2
-              </li>
-            </ul>
-            <ul>
-              <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
-            </ul>
-          </section>
+          <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
         </div>
       </div>
     );

@@ -29,17 +29,28 @@ const style = {
   }
 };
 
-const contentLabel = 'Sign In';
+let contentLabel = 'signin';
 
 class SignInModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalOpen: '',
-      username: '',
-      password: ''
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    if (contentLabel === 'signin') {
+      this.state = {
+        modalOpen: '',
+        username: '',
+        password: ''
+      };
+    } else {
+      this.state = {
+        modalOpen: '',
+        username: '',
+        password: '',
+        email: '',
+        location: ''
+      };
+    }
+    this.handleSignin = this.handleSignin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
     this.update = this.update.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -59,10 +70,16 @@ class SignInModal extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  handleSignin(event) {
     event.preventDefault();
     const user = this.state;
     this.props.signin({user});
+  }
+
+  handleSignup(event) {
+    event.preventDefault();
+    const user = this.state;
+    this.props.signup({user});
   }
 
   renderErrors() {
@@ -87,10 +104,10 @@ class SignInModal extends React.Component {
           <input type='password' className='signin-input' placeholder='  Password*'
             value={this.state.password} onChange={this.update('password')} />
           <h6>{this.renderErrors()}</h6>
-          <span className='signin-button' onClick={this.handleSubmit}>Sign In</span>
+          <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
           <br />
           <span className='back-to-login'>New to TableForU?
-            <span className='back-to-login-button' onClick={() => this.openModal('signup')}>  Create Accout</span>
+            <span className='back-to-login-button' onClick={() => { contentLabel = 'signin'; this.openModal('signup');}}>  Create Accout</span>
           </span>
         </span>
       );
@@ -107,7 +124,7 @@ class SignInModal extends React.Component {
           <input type='location' className='signup-input' placeholder='  Primary dining location'
             value={this.state.location} onChange={this.update('location')} />
           <h6>{this.renderErrors()}</h6>
-          <span className='signup-button' onClick={this.handleSubmit}>Create Account</span>
+          <span className='signup-button' onClick={this.handleSignup}>Create Account</span>
         </span>
       );
     }
@@ -118,20 +135,20 @@ class SignInModal extends React.Component {
     return (
       <span>
         <span className='header-signin' onClick={() => this.openModal('signin')}>Sign In</span>
-        <Modal
-          style={style}
-          contentLabel={contentLabel}
-          isOpen={this.state.modalOpen !== ''}
-          className='signin-form-container'
-          onRequestClose={this.closeModal}
-          >
-          <i
-            className='fa fa-times close-button'
-            aria-hidden='true'
-            onClick={this.closeModal}>
-          </i>
-          {this.modalContent()}
-        </Modal>
+          <Modal
+            style={style}
+            contentLabel={contentLabel}
+            isOpen={this.state.modalOpen !== ''}
+            className='signin-form-container'
+            onRequestClose={this.closeModal}
+            >
+            <i
+              className='fa fa-times close-button'
+              aria-hidden='true'
+              onClick={this.closeModal}>
+            </i>
+            {this.modalContent()}
+          </Modal>
       </span>
     );
   }

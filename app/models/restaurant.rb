@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
     :rate, presence: true
 
   belongs_to :city,
-    primary_key: :id,
+    primary_key: :city_id,
     foreign_key: :city_id,
     class_name: :City
 

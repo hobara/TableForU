@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { createRestaurant } from '../../actions/restaurant_actions';
 
+
 const style = {
   overlay: {
     position: 'fixed',
@@ -32,41 +33,61 @@ const style = {
   }
 };
 
-const contentLabel = 'add';
+let contentLabel = 'add';
 
 
 
 class AddRestaurant extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalOpen: '',
-      name: '',
-      city_name: '',
-      address: '',
-      state: '',
-      zip: '',
-      image: '',
-      about: '',
-      cuisine: 0,
-      price: 0,
-      hours: 0,
-      rate: 0
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    if (contentLabel === 'add') {
+      this.state = {
+        modalOpen: '',
+        name: '',
+        city_name: '',
+        address: '',
+        state: '',
+        zip: '',
+        image: '',
+        about: '',
+        cuisine: 0,
+        price: 0,
+        hours: 0,
+        rate: 0
+      };
+    } else if (contentLabel === 'signin') {
+      this.state = {
+        modalOpen: '',
+        username: '',
+        password: ''
+      };
+    } else {
+      this.state = {
+        modalOpen: '',
+        username: '',
+        password: '',
+        email: '',
+        location: ''
+      };
+    }
+    this.handleAdd = this.handleAdd.bind(this);
     this.update = this.update.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.goToShowpage = this.goToShowpage.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSignin = this.handleSignin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
   }
 
   closeModal() {
     this.setState({ modalOpen: '' });
   }
 
-  openModal() {
-    this.setState({ modalOpen: 'add' });
+  openModal(type) {
+    this.setState({ modalOpen: type });
   }
 
   update(key) {
@@ -80,11 +101,36 @@ class AddRestaurant extends Component {
     this.props.history.push(`/restaurants/${id}`);
   }
 
-  handleSubmit(event) {
+  handleAdd(event) {
     event.preventDefault();
     const newRestaurant = this.state;
     this.props.createRestaurant({restaurant: newRestaurant}).then( () =>
     { this.goToShowpage(); } );
+  }
+
+  handleSignin() {
+    event.preventDefault();
+    const user = this.state;
+    this.props.signin({user}).then(() => this.closeModal());
+  }
+
+  handleSignup() {
+    event.preventDefault();
+    const user = this.state;
+    this.props.signup({user}).then(() => this.closeModal());
+  }
+
+
+  handleClick() {
+    if (window.getState().currentUser === null) {
+      this.openModal('signin');
+      style['content']['maxWidth'] = '300px';
+      contentLabel = 'signin';
+    } else {
+      contentLabel = 'signup';
+      style['content']['maxWidth'] = '500px';
+      this.openModal('add');
+    }
   }
 
   renderErrors() {
@@ -100,6 +146,7 @@ class AddRestaurant extends Component {
   }
 
   render() {
+    console.log(this.state);
     return(
       <div className='add-restaurant-container'>
         <section className='add-restaurant-header'>
@@ -114,12 +161,12 @@ class AddRestaurant extends Component {
 
 
         <section className='add-restaurant-button'
-          onClick={() => this.openModal('add')}>
+          onClick={this.handleClick}>
           Add restaurant
           <Modal
             style={style}
             contentLabel={contentLabel}
-            isOpen={this.state.modalOpen !== ''}
+            isOpen={this.state.modalOpen === 'add'}
             className='add-restaurant-form'
             onRequestClose={this.closeModal}
             >
@@ -200,11 +247,54 @@ class AddRestaurant extends Component {
               <section className='add-restaurant-errors'>{this.renderErrors()}</section>
             </section>
             <section className='add-restaurant-form-row'>
-              <span className='restaurant-input-submit' onClick={this.handleSubmit}>Add Restaurant</span>
+              <span className='restaurant-input-submit' onClick={this.handleAdd}>Add Restaurant</span>
             </section>
           </Modal>
-        </section>
 
+          <Modal
+            style={style}
+            contentLabel={contentLabel}
+            isOpen={this.state.modalOpen === 'signin'}
+            className='signin-form-container'
+            onRequestClose={this.closeModal}
+            >
+            <span className='signin-modal-container'>
+              <span className='signin-form-header'>Please sign in</span>
+              <input type='text' className='signin-input' placeholder='  Username*'
+                value={this.state.username} onChange={this.update('username')} />
+              <input type='password' className='signin-input' placeholder='  Password*'
+                value={this.state.password} onChange={this.update('password')} />
+              <h6>{this.renderErrors()}</h6>
+              <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
+              <br />
+              <span className='back-to-login'>New to TableForU?
+                <span className='back-to-login-button' onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>  Create Accout</span>
+              </span>
+            </span>
+          </Modal>
+
+          <Modal
+            style={style}
+            contentLabel={contentLabel}
+            isOpen={this.state.modalOpen === 'signup'}
+            className='signin-form-container'
+            onRequestClose={this.closeModal}
+            >
+            <span className='signup-modal-container'>
+              <span className='signup-form-header'>Welcome to TableForÜ!</span>
+              <input type='text' className='signup-input' placeholder='  Username*'
+                value={this.state.username} onChange={this.update('username')} />
+              <input type='text' className='signup-input' placeholder='  Email*'
+                value={this.state.email} onChange={this.update('email')} />
+              <input type='password' className='signup-input' placeholder='  Password*'
+                value={this.state.password} onChange={this.update('password')} />
+              <input type='location' className='signup-input' placeholder='  Primary dining location'
+                value={this.state.location} onChange={this.update('location')} />
+              <h6>{this.renderErrors()}</h6>
+              <span className='signup-button' onClick={this.handleSignup}>Create Account</span>
+            </span>
+          </Modal>
+        </section>
       </div>
     );
   }

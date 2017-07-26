@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-trainsition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-trainsition-group';
 
 export default class AutoComplete extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class AutoComplete extends React.Component {
   }
 
   handleInput(event) {
-    this.setState({inputVal: event.currenttarget.velue});
+    this.setState({inputVal: event.currentTarget.value});
   }
 
   matches() {
@@ -49,13 +49,12 @@ export default class AutoComplete extends React.Component {
 
     return(
       <div>
-        <h1>Autocomplete</h1>
         <div className='auto'>
           <input
             onChange={this.handleInput}
             value={this.state.inputVal}
             placeholder='Search...'/>
-          <ul>
+          <ul onClick={setRestaurant}>
             <ReactCSSTransitionGroup
               transitionName='auto'
               transitionEnterTimeout={500}

@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 import CityDetail from './city_detail';
 import { requestSingleCity, requestAllCity } from '../../actions/city_actions';
+import { requestAllRestaurant } from '../../actions/restaurant_actions';
 
 const mapStateToProps = (state) => ({
   city: state.city,
-  cities: state.cities
+  cities: state.cities,
+  restaurants: state.restaurants
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // requestSingleCity: id => dispatch(requestSingleCity(id))
-  requestAllCity: () => dispatch(requestAllCity())
+  requestAllCity: () => dispatch(requestAllCity()),
+  requestAllRestaurant: () => dispatch(requestAllRestaurant())
 });
 
 export default connect(

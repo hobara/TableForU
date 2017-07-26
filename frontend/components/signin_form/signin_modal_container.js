@@ -6,11 +6,10 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signin: user => dispatch(signin(user))
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  signin: user => dispatch(signin(user)),
+  signup: user => dispatch(signup(user))
+});
 
 export default connect(
   mapStateToProps,

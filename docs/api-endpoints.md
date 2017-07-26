@@ -1,3 +1,5 @@
+<Auto restaurants={this.props.restaurants} autoValue={this.state.autoValue}/>
+
 <h2>API Endpoints</h2>
 
 <h3>Root</h3>

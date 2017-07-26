@@ -52,6 +52,7 @@
 }
 
 .restaurant-image:hover {
+  cursor: pointer;
   opacity: 0.80;
 }
 
@@ -79,6 +80,7 @@
 }
 
 .restaurant-name:hover {
+  cursor: pointer;
   color: #E5656E;
 }
 
@@ -561,6 +563,7 @@
 }
 
 .search-seats {
+  order: 1;
   height: 46px;
   width: 16%;
   font-size: 18px;
@@ -577,6 +580,7 @@
 }
 
 .search-date {
+  order: 2;
   height: 46px;
   width: 20%;
   font-size: 18px;
@@ -595,6 +599,7 @@
 
 
 .search-time {
+  order: 3;
   height: 46px;
   width: 18%;
   font-size: 18px;
@@ -612,6 +617,7 @@
 }
 
 .search-restaurant {
+  order: 4;
   height: 46px;
   width: 30%;
   font-size: 18px;
@@ -627,6 +633,7 @@
 }
 
 .search-find-button {
+  order: 5;
   height: 49px;
   font-size: 14px;
   background-color: #DA3743;

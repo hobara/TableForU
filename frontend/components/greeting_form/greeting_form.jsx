@@ -61,7 +61,7 @@ class GreetingForm extends React.Component {
           <span className='header-city-container'>
             <span className='header-city-content'>
               <select className='header-city-lists' id='location-list' >
-                <option defaultValue hidden >Choose Location</option>
+                <option value="/" hidden >Choose Location</option>
                 <option value="/cities/1">San Francisco</option>
                 <option value="/cities/2">Los Angeles</option>
                 <option value="/cities/4">Chicago</option>
