@@ -175,6 +175,8 @@
 
 .restaurant-showpage-main-background {
   background-color: #F3F2F1;
+  display: flex;
+  justify-content: space-around;
 }
 
 
@@ -384,23 +386,34 @@
 
 
 .restaurant-showpage-main {
+  order: 2;
   margin: 20px 40px 20px 40px;
   max-width: 1400px;
+  // border: 1px solid red;
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
 
 .restaurant-showpage-nav-link {
   order: 1;
-  background-color: white;
-  width: 12%;
-  height: auto;
-  max-height: 300px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 3px;
+  // background-color: white;
+  // width: 12%;
+  width: 200px;;
+  // height: auto;
+  display: block;
+  // max-height: 300px;
+  // flex-direction: column;
+
+  // border-radius: 3px;
   // border: 1px solid red;
   margin: 30px 10px;
+
+}
+
+.wrapper {
+  position: absolute;
+  // border: 1px solid blue;
 }
 
 .page-nav-link {
@@ -416,7 +429,7 @@
 
 
 .restaurant-showpage-main-content {
-  order: 2;
+  order: 1;
   width: 68%;
   margin-top: 20px;
   height: auto;
@@ -511,7 +524,7 @@
 
 
 .restaurant-showpage-detail-right {
-  order: 3;
+  order: 2;
   background-color: white;
   border-radius: 5px;
   width: 20%;

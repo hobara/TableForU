@@ -157,6 +157,13 @@ class SearchForm extends Component {
     });
   }
 
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.signin({user: {username:'Guest', password:'password'}})
+    .then(() => this.closeModal());
+  }
+
+
   renderErrors() {
     return(
       <ul>
@@ -248,6 +255,7 @@ class SearchForm extends Component {
                   this.openModal('signup');
                 }}>   Create Accout</span>
             </span>
+            <span className='header-button' onClick={this.handleDemo}>Demo</span>
           </span>
         </Modal>
 

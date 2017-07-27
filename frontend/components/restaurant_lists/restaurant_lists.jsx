@@ -103,6 +103,7 @@ class RestaurantLists extends Component {
     this.handleSignin = this.handleSignin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.renderContent = this.renderContent.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -143,6 +144,12 @@ class RestaurantLists extends Component {
     event.preventDefault();
     const user = this.state;
     this.props.signup({user}).then(() => this.closeModal());
+  }
+
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.signin({user: {username:'Guest', password:'password'}})
+    .then(() => this.closeModal());
   }
 
   renderErrors() {
@@ -248,6 +255,7 @@ class RestaurantLists extends Component {
               <span className='back-to-login-button'
                 onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>
                 Create Accout</span>
+              <span className='header-button' onClick={this.handleDemo}>Demo</span>
             </span>
           </span>
         </Modal>

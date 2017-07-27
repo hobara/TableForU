@@ -80,6 +80,7 @@ class AddRestaurant extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleSignin = this.handleSignin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   closeModal() {
@@ -132,6 +133,13 @@ class AddRestaurant extends Component {
       this.openModal('add');
     }
   }
+
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.signin({user: {username:'Guest', password:'password'}})
+    .then(() => this.closeModal());
+  }
+
 
   renderErrors() {
     return(
@@ -269,6 +277,7 @@ class AddRestaurant extends Component {
               <span className='back-to-login'>New to TableForU?
                 <span className='back-to-login-button' onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>  Create Accout</span>
               </span>
+              <span className='header-button' onClick={this.handleDemo}>Demo</span>
             </span>
           </Modal>
 

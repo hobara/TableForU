@@ -58,6 +58,7 @@ class SignInModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.clearErrors = clearErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
 
@@ -85,6 +86,12 @@ class SignInModal extends React.Component {
     event.preventDefault();
     const user = this.state;
     this.props.signup({user});
+  }
+
+  handleDemo(event) {
+    event.preventDefault();
+    this.props.signin({user: {username:'Guest', password:'password'}})
+    .then(() => this.closeModal());
   }
 
   renderErrors() {
@@ -124,6 +131,7 @@ class SignInModal extends React.Component {
                 this.setState({errors: []});
               }}>  Create Accout</span>
           </span>
+          <span className='header-button' onClick={this.handleDemo}>Demo</span>
         </span>
       );
     } else {

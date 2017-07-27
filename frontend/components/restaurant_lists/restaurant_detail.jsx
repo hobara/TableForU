@@ -88,13 +88,17 @@ class RestaurantDetail extends Component {
             </section>
         </div>
         <div className='restaurant-showpage-main-background'>
+          <div className='restaurant-showpage-nav-link'>
+            <sec className='wrapper'>
+            <ul>
+            <li className='page-nav-link' onClick={this.scrollTo(this.reservationSection)}>Reservation</li>
+            <li className='page-nav-link' onClick={this.scrollTo(this.aboutSection)}>About</li>
+            <li className='page-nav-link' onClick={this.scrollTo(this.photosSection)}>Photos</li>
+            <li className='page-nav-link' onClick={this.scrollTo(this.reviewsSection)}>Reviews</li>
+            </ul>
+            </sec>
+          </div>
           <div className='restaurant-showpage-main'>
-            <nav className='restaurant-showpage-nav-link'>
-              <div className='page-nav-link' onClick={this.scrollTo(this.reservationSection)}>Reservation</div>
-              <a className='page-nav-link' onClick={this.scrollTo(this.aboutSection)}>About</a>
-              <a className='page-nav-link' onClick={this.scrollTo(this.photosSection)}>Photos</a>
-              <a className='page-nav-link' onClick={this.scrollTo(this.reviewsSection)}>Reviews</a>
-            </nav>
             <div className='restaurant-showpage-main-content'>
               <div ref={ el => this.reservationSection = el } className='restaurant-showpage-reservation' name='reservation'>
                 <ReservationForm />
