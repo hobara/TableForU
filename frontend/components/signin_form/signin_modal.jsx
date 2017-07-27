@@ -129,9 +129,13 @@ class SignInModal extends React.Component {
                 contentLabel = 'signin';
                 this.openModal('signup');
                 this.setState({errors: []});
-              }}>  Create Accout</span>
+              }}>&nbsp; Create Accout
+            </span>
           </span>
-          <span className='header-button' onClick={this.handleDemo}>Demo</span>
+          <span className='back-to-signup'>
+            Or sign in as a &nbsp;
+            <span className='back-to-signup-button' onClick={this.handleDemo}>Guest</span>
+          </span>
         </span>
       );
     } else {

@@ -112,21 +112,27 @@ class AddRestaurant extends Component {
   handleSignin() {
     event.preventDefault();
     const user = this.state;
-    this.props.signin({user}).then(() => this.closeModal());
+    this.props.signin({user}).then(() => {
+      this.closeModal();
+      contentLabel = 'add';
+    });
   }
 
   handleSignup() {
     event.preventDefault();
     const user = this.state;
-    this.props.signup({user}).then(() => this.closeModal());
+    this.props.signup({user}).then(() => {
+      this.closeModal();
+      contentLabel = 'add';
+    });
   }
 
 
   handleClick() {
     if (window.getState().currentUser === null) {
+      contentLabel = 'signin';
       this.openModal('signin');
       style['content']['maxWidth'] = '300px';
-      contentLabel = 'signin';
     } else {
       contentLabel = 'signup';
       style['content']['maxWidth'] = '500px';
@@ -137,7 +143,10 @@ class AddRestaurant extends Component {
   handleDemo(event) {
     event.preventDefault();
     this.props.signin({user: {username:'Guest', password:'password'}})
-    .then(() => this.closeModal());
+    .then(() => {
+      this.closeModal();
+      contentLabel = 'add';
+    });
   }
 
 
@@ -274,10 +283,13 @@ class AddRestaurant extends Component {
               <h6>{this.renderErrors()}</h6>
               <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
               <br />
-              <span className='back-to-login'>New to TableForU?
-                <span className='back-to-login-button' onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>  Create Accout</span>
+              <span className='back-to-signup'>New to TableForU?
+                <span className='back-to-signup-button' onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>  Create Accout</span>
               </span>
-              <span className='header-button' onClick={this.handleDemo}>Demo</span>
+              <span className='back-to-signup'>
+                Or sign in as a &nbsp;
+                <span className='back-to-signup-button' onClick={this.handleDemo}>Guest</span>
+              </span>
             </span>
           </Modal>
 

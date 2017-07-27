@@ -126,8 +126,8 @@ class RestaurantLists extends Component {
 
   handleClick() {
     if (window.getState().currentUser === null) {
-      this.openModal('signin');
       contentLabel = 'signin';
+      this.openModal('signin');
     } else {
       const { id } = this.props.restaurant;
       this.props.history.push(`/restaurants/${id}`);
@@ -143,14 +143,29 @@ class RestaurantLists extends Component {
   handleSignup() {
     event.preventDefault();
     const user = this.state;
-    this.props.signup({user}).then(() => this.closeModal());
+    this.props.signup({user}).then(() => {
+      this.closeModal();
+      contentLabel = 'signin';
+    });
+  }
+
+  handleDemo(event) {
+    event.preventDefault();
+    contentLabel = 'signin';
+    this.props.signin({user: {username:'Guest', password:'password'}})
+    .then(() => this.closeModal());
   }
 
   handleDemo(event) {
     event.preventDefault();
     this.props.signin({user: {username:'Guest', password:'password'}})
-    .then(() => this.closeModal());
+    .then(() => {
+      this.closeModal();
+      contentLabel = 'search';
+    });
   }
+
+
 
   renderErrors() {
     return(
@@ -167,8 +182,6 @@ class RestaurantLists extends Component {
   renderContent() {
     let restaurantList = [];
     const allIds = Object.keys(this.props.restaurants);
-    console.log(this.state);
-    console.log(this.props);
     allIds.forEach((assignedId) => {
       if (this.props.restaurants[assignedId]['city_id'] === this.props.city.city_id ) {
         let obj = {};
@@ -251,12 +264,15 @@ class RestaurantLists extends Component {
             <h6>{this.renderErrors()}</h6>
             <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
             <br />
-            <span className='back-to-login'>New to TableForU?
-              <span className='back-to-login-button'
+            <span className='back-to-signup'>New to TableForU?
+              <span className='back-to-signup-button'
                 onClick={() => { contentLabel = 'signup'; this.openModal('signup');}}>
-                Create Accout</span>
-              <span className='header-button' onClick={this.handleDemo}>Demo</span>
+                &nbsp; Create Accout</span>
             </span>
+              <span className='back-to-signup'>
+                Or sign in as a &nbsp;
+                <span className='back-to-signup-button' onClick={this.handleDemo}>Guest</span>
+              </span>
           </span>
         </Modal>
 

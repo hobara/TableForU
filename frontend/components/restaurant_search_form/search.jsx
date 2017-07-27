@@ -68,6 +68,7 @@ class SearchForm extends Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.handleSignin = this.handleSignin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -159,10 +160,13 @@ class SearchForm extends Component {
 
   handleDemo(event) {
     event.preventDefault();
+    contentLabel = 'signin';
     this.props.signin({user: {username:'Guest', password:'password'}})
-    .then(() => this.closeModal());
+    .then(() => {
+      this.closeModal();
+      contentLabel = 'search';
+    });
   }
-
 
   renderErrors() {
     return(
@@ -248,14 +252,17 @@ class SearchForm extends Component {
             <h6>{this.renderErrors()}</h6>
             <span className='signin-button' onClick={this.handleSignin}>Sign In</span>
             <br />
-            <span className='back-to-login'>New to TableForU?
-              <span className='back-to-login-button'
+            <span className='back-to-signup'>New to TableForU?
+              <span className='back-to-signup-button'
                 onClick={() => {
                   contentLabel = 'signup';
                   this.openModal('signup');
                 }}>   Create Accout</span>
             </span>
-            <span className='header-button' onClick={this.handleDemo}>Demo</span>
+            <span className='back-to-signup'>
+              Or sign in as a &nbsp;
+              <span className='back-to-signup-button' onClick={this.handleDemo}>Guest</span>
+            </span>
           </span>
         </Modal>
 
