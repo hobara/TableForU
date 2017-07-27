@@ -49,7 +49,7 @@ class AddRestaurant extends Component {
         address: '',
         state: '',
         zip: '',
-        image: '',
+        image1: '',
         about: '',
         cuisine: 0,
         price: 0,
@@ -174,7 +174,7 @@ class AddRestaurant extends Component {
               <input type='text' className='restaurant-input-left' placeholder='  Restaurant Name*'
                 value={this.state.name} onChange={this.update('name')} />
               <input type='text' className='restaurant-input-right' placeholder='  Image Url'
-                value={this.state.image} onChange={this.update('image')} />
+                value={this.state.image1} onChange={this.update('image')} />
             </section>
             <section className='add-restaurant-form-row'>
               <input type='text' className='restaurant-input-left' placeholder='  Restaurant Street Address*'
@@ -220,10 +220,10 @@ class AddRestaurant extends Component {
               <select className='restaurant-input-hours'
                 value={this.state.hours} onChange={this.update('hours')} >
                 <option defaultValue hidden >Choose Open Hours</option>
-                <option value="1">18:00 - 22:00</option>
-                <option value="2">18:00 - 23:00</option>
-                <option value="3">19:00 - 23:00</option>
-                <option value="4">19:00 - 24:00</option>
+                <option value="1">17:00 - 21:00</option>
+                <option value="2">17:00 - 22:00</option>
+                <option value="3">18:00 - 22:00</option>
+                <option value="4">18:00 - 23:00</option>
               </select>
               <select className='restaurant-input-cityid'
                 value={this.state.city_id} onChange={this.update('city_id')} >

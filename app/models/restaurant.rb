@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   validates :name, :address, :city_name, :state,
-   :zip, :about, :image, :city, :cuisine, :price, :hours,
+   :zip, :about, :image1, :image2, :image3, :city, :cuisine, :price, :hours,
     :rate, presence: true
 
   belongs_to :city,

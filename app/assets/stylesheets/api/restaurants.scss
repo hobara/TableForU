@@ -16,7 +16,7 @@
 
 .city-restaurant-header {
   // border: 1px solid blue;
-  margin: 10px 0px 10px 10px;
+  margin: 10px 10px 10px 10px;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 24px;
@@ -48,7 +48,8 @@
 
 .restaurant-image {
   width: 100%;
-  height: 100%
+  height: 100%;
+  border-radius: 3px;
 }
 
 .restaurant-image:hover {
@@ -59,7 +60,7 @@
 .restaurant-listitem-middle {
   order: 2;
   // border: 1px solid red;
-  margin: 5px 5px;
+  margin: 5px 5px 5px 15px;;
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -72,7 +73,7 @@
 
 .restaurant-name {
   order: 1;
-  padding-left: 5px;
+  // padding-left: 5px;
   padding-top: 5px;
   font-weight: 800;
   font-size: 24px;
@@ -85,22 +86,24 @@
 }
 
 .restaurant-cuisine {
-  order: 2;
-  padding-left: 5px;
-  padding-top: 5px;
-  margin-bottom: 10px;
+  order: 3;
+  // padding-left: 5px;
+  // padding-top: 10px;
+  // margin-top: 15px;
+  margin-bottom: 5px;
 }
 .restaurant-rate {
-  order: 3;
-  padding-left: 5px;
-  padding-top: 5px;
+  order: 2;
+  // padding-left: 5px;
+  // padding-top: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 .restaurant-price {
   order: 4;
-  padding-left: 5px;
-  padding-top: 5px;
-  margin-bottom: 10px;
+  // padding-left: 5px;
+  // padding-top: 10px;
+  // margin-bottom: 10px;
 }
 
 
@@ -221,20 +224,20 @@
   // padding: 0px 20px 10px 20px;
 }
 
-.restaurant-showpage-about-header {
-  border-bottom: 1px solid #CCCCCC;
-  padding: 0px 20px 0px 20px;
-}
-
-.restaurant-showpage-about-text {
-  padding: 0px 20px 0px 20px;
-  margin: 10px 0px 10px 0px;
-}
-
-.restaurant-showpage-about-map {
-  padding: 0px 20px 0px 20px;
-  margin: 10px 0px 10px 0px;
-}
+// .restaurant-showpage-about-header {
+//   border-bottom: 1px solid #CCCCCC;
+//   padding: 0px 20px 0px 20px;
+// }
+//
+// .restaurant-showpage-about-text {
+//   padding: 0px 20px 0px 20px;
+//   margin: 10px 0px 10px 0px;
+// }
+//
+// .restaurant-showpage-about-map {
+//   padding: 0px 20px 0px 20px;
+//   margin: 10px 0px 10px 0px;
+// }
 
 
 .restaurant-showpage-photo {
@@ -390,7 +393,7 @@
 .restaurant-showpage-nav-link {
   order: 1;
   background-color: white;
-  width: 10%;
+  width: 12%;
   height: auto;
   max-height: 300px;
   display: flex;
@@ -401,9 +404,9 @@
 }
 
 .page-nav-link {
-  margin: 20px 0px 10px 20px;
-  font-size: 18px;
-  // font-weight: 300;
+  margin: 20px 0px 10px 10px;
+  // width: auto;
+  // height: auto;
 }
 
 .page-nav-link:hover {
@@ -414,7 +417,7 @@
 
 .restaurant-showpage-main-content {
   order: 2;
-  width: 70%;
+  width: 68%;
   margin-top: 20px;
   height: auto;
   display: flex;
@@ -437,8 +440,26 @@
   background-color: white;
   border-radius: 5px;
   margin: 10px 10px;
-  height: 200px;
+  // height: 200px;
+  display: flex;
+  flex-direction: column;
   // border: 1px solid green;
+}
+
+.restaurant-showpage-content-header {
+  order: 1;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0px 20px 0px 20px;
+}
+.restaurant-showpage-content-about-text {
+  order: 2;
+  padding: 0px 20px 0px 20px;
+  margin: 10px 0px 10px 0px;
+}
+.restaurant-showpage-content-about-map {
+  order: 3;
+  padding: 0px 20px 0px 20px;
+  margin: 100px 0px 100px 0px;
 }
 
 .restaurant-showpage-photos {
@@ -446,16 +467,37 @@
   background-color: white;
   border-radius: 5px;
   margin: 10px 10px;
-  height: 200px;
+  padding-bottom: 10px;
+  // height: 200px;
+  flex-shrink: 1;
+  width: auto;
+  height: auto;
+   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   // border: 1px solid green;
 }
 
-.restaurant-showpage-photo {
-  background-color: white;
-  border-radius: 5px;
-  width: auto;
-  height: 90%;
+.restaurant-showpage-content-photo-header {
+  order: 1;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0px 20px 0px 20px;
+  margin: 0px 0px 30px 0px;
+}
 
+.restaurant-showpage-photo {
+  order: 2;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  border-radius: 5px;
+  border: 0px;
+  width: auto;
+  max-width: 500px;
+  height: auto;
+  align-self: center;
+  //  overflow-y: auto;
+  flex-shrink: 1;
+  // flex-basis: auto;
 }
 
 .restaurant-showpage-reviews {
@@ -656,7 +698,9 @@
   padding: 5px;
   color: #666666;
   background: white;
-  background-color: #F3F2F1;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 3px;
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
   -webkit-margin-start: 0px;
@@ -672,7 +716,7 @@
 
 .search-result-item {
   padding-left: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .search-find-button {

@@ -41,7 +41,9 @@ ActiveRecord::Schema.define(version: 20170725050142) do
     t.string "state", null: false
     t.integer "zip", null: false
     t.string "about", null: false
-    t.string "image", null: false
+    t.string "image1", null: false
+    t.string "image2"
+    t.string "image3"
     t.integer "city_id", null: false
     t.integer "cuisine", null: false
     t.integer "price", null: false

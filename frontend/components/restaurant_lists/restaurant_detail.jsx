@@ -32,10 +32,10 @@ const PRICE_RANGE = {
 };
 
 const HOURS_TYPE = {
-  1: '18:00 - 22:00',
-  2: '18:00 - 23:00',
-  3: '19:00 - 23:00',
-  4: '19:00 - 24:00'
+  1: '17:00 - 21:00',
+  2: '17:00 - 22:00',
+  3: '18:00 - 22:00',
+  4: '18:00 - 23:00'
 };
 
 const RATE_TYPE = {
@@ -71,7 +71,7 @@ class RestaurantDetail extends Component {
       <div className='restaurant-showpage-background'>
         <div className='restaurant-showpage-header'>
             <span className='showpage-header-left'>
-              <img src={this.props.restaurant.image} className='showpage-header-image'/>
+              <img src={this.props.restaurant.image1} className='showpage-header-image'/>
             </span>
             <section className='showpage-header-right'>
               <section className='showpage-restaurant-name'>{this.props.restaurant.name}</section>
@@ -92,7 +92,7 @@ class RestaurantDetail extends Component {
             <nav className='restaurant-showpage-nav-link'>
               <div className='page-nav-link' onClick={this.scrollTo(this.reservationSection)}>Reservation</div>
               <a className='page-nav-link' onClick={this.scrollTo(this.aboutSection)}>About</a>
-              <a className='page-nav-link' onClick={this.scrollTo(this.photosSection)}>Photo</a>
+              <a className='page-nav-link' onClick={this.scrollTo(this.photosSection)}>Photos</a>
               <a className='page-nav-link' onClick={this.scrollTo(this.reviewsSection)}>Reviews</a>
             </nav>
             <div className='restaurant-showpage-main-content'>
@@ -100,18 +100,23 @@ class RestaurantDetail extends Component {
                 <ReservationForm />
               </div>
               <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
-                <section className='restaurant-showpage-about-header'>
+                <section className='restaurant-showpage-content-header'>
                   <h2>About {this.props.restaurant.name}</h2>
                 </section>
-                <section className='restaurant-showpage-about-text'>
+                <section className='restaurant-showpage-content-about-text'>
                   {this.props.restaurant.about}
                 </section>
-                <section className='restaurant-showpage-about-map'>
+                <section className='restaurant-showpage-content-about-map'>
                   <span>**Google Map Container**</span>
                 </section>
               </div>
               <div ref={ el => this.photosSection = el } className='restaurant-showpage-photos' name='photos'>
-                <img src={this.props.restaurant.image} className='restaurant-showpage-photo'/>
+                <span className='restaurant-showpage-content-photo-header'>
+                  <h2>Photos</h2>
+                </span>
+                <img src={this.props.restaurant.image1} className='restaurant-showpage-photo'/>
+                <img src={this.props.restaurant.image2} className='restaurant-showpage-photo'/>
+                <img src={this.props.restaurant.image3} className='restaurant-showpage-photo'/>
               </div>
               <div ref={ el => this.reviewsSection = el } className='restaurant-showpage-reviews' name='reviews'>
                 review...coming soon

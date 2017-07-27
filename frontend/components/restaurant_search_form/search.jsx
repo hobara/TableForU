@@ -87,10 +87,6 @@ class SearchForm extends Component {
       if (restaurant.name.toLowerCase().includes(this.state.inputVal.toLowerCase())) {
         matches.push(restaurant);
       }
-      // let sub = restaurant.name.slice(0, this.state.inputVal.length);
-      // if (sub.toLowerCase() === this.state.inputVal.toLowerCase()) {
-      //   matches.push(restaurant);
-      // }
     });
     return matches;
   }

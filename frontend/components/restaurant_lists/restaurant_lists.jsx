@@ -160,8 +160,10 @@ class RestaurantLists extends Component {
   renderContent() {
     let restaurantList = [];
     const allIds = Object.keys(this.props.restaurants);
+    console.log(this.state);
+    console.log(this.props);
     allIds.forEach((assignedId) => {
-      if (this.props.restaurants[assignedId]['city_id'] === 1 ) {
+      if (this.props.restaurants[assignedId]['city_id'] === this.props.city.city_id ) {
         let obj = {};
         obj[assignedId] = this.props.restaurants[assignedId];
         restaurantList.push(obj);
@@ -175,7 +177,7 @@ class RestaurantLists extends Component {
             <section key={idx} className='restaurant-listitem'>
               <section className='restaurant-listitem-left'>
                 <span onClick={() => {this.openModal('signin'); contentLabel = 'signin';}} >
-                  <img className='restaurant-image' src={Object.values(restaurant)[0].image}/>
+                  <img className='restaurant-image' src={Object.values(restaurant)[0].image1}/>
                 </span>
               </section>
               <section className='restaurant-listitem-middle'>
@@ -184,7 +186,7 @@ class RestaurantLists extends Component {
                 </span>
                 <span className='restaurant-cuisine'>{CUISINE_TYPE[Object.values(restaurant)[0].cuisine]}</span>
                 <span className='restaurant-rate'><img src={RATE_TYPE[Object.values(restaurant)[0].rate]} /></span>
-                <span className='restaurant-price'>Price:{PRICE_TYPE[Object.values(restaurant)[0].price]}</span>
+                <span className='restaurant-price'>Price:{ PRICE_TYPE[Object.values(restaurant)[0].price]}</span>
               </section>
               <section className='restaurant-listitem-right'>
                 <span className='restaurant-review'>Reviews coming soon...</span>
@@ -199,7 +201,7 @@ class RestaurantLists extends Component {
             <section key={idx} className='restaurant-listitem'>
               <section className='restaurant-listitem-left'>
                 <Link to={`/restaurants/${Object.keys(restaurant)[0]}`} restaurant={restaurant}>
-                  <img className='restaurant-image' src={Object.values(restaurant)[0].image}/>
+                  <img className='restaurant-image' src={Object.values(restaurant)[0].image1}/>
                 </Link>
               </section>
               <section className='restaurant-listitem-middle'>
