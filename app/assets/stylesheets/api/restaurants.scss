@@ -208,9 +208,11 @@
 }
 
 .restaurant-showpage-reservation {
-  border: 1px solid pink;
-  height: 100px;
+  // border: 1px solid pink;
+  height: 100%;
+
   margin: 10px 10px;
+  display: flex;
 }
 
 .restaurant-showpage-about {
@@ -771,4 +773,129 @@
 .showpage-restaurant-details-right:hover {
   color: #DA3743;
   cursor: pointer;
+}
+
+.reservation-request-container {
+  width: 100%;
+  height: 100%;
+}
+
+.reservation-request-search {
+  // background-color: white;
+  // border-radius: 5px;
+  // margin: 40px 40px 20px 40px;
+  // max-width: 1020px;
+  // border: 1px solid #ECECEC;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 0px;
+}
+
+
+
+.reservation-request-header {
+  order: 1;
+  font-size: 24px;
+  margin: 20px 20px;
+}
+
+.reservation-request-bar {
+  order: 2;
+  margin: 10px 20px 20px 20px;
+  align-items: center;
+
+  border: 1px solid #DBD9D5;
+  border-radius: 3px;
+}
+
+.reservation-request-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.reservation-request-seats {
+  order: 1;
+  height: 46px;
+  width: 25%;
+  font-size: 18px;
+  color: #666666;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: white;
+  padding: 0;
+  border-width: 0;
+  border-radius: 0px;
+}
+
+.reservation-request-seats:hover {
+  cursor: pointer;
+}
+
+.reservation-request-date {
+  order: 2;
+  height: 46px;
+  width: 25%;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #666666;
+  border-radius: 0px;
+  border-width: 0;
+  border-left: 1px solid #DBD9D5;
+  border-right: 1px solid #DBD9D5;
+  // padding-left: 10px;
+}
+
+.reservation-request-date:hover {
+  cursor: pointer;
+}
+
+.reservation-request-time {
+  order: 3;
+  height: 46px;
+  width: 25%;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #666666;
+  background-color: white;
+  border-radius: 0px;
+  border-width: 0;
+  // border: 1px solid #DBD9D5;
+  padding: 0;
+}
+
+.reservation-request-time:hover {
+  cursor: pointer;
+}
+
+.reservation-request-button {
+  order: 4;
+  height: 49px;
+  font-size: 14px;
+  background-color: #DA3743;
+  border: 0;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  // display: flex;
+  // justify-content: center;
+  align-items: center;
+  width: 25%;
+  min-width: 20px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.reservation-request-button:hover {
+  background-color: #da2734;
+  cursor: pointer;
+}
+
+.hiii {
+  order: 3;
 }
