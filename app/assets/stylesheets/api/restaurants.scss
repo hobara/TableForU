@@ -150,7 +150,7 @@
   width: 80%;
   min-width: 400px;
   max-width: 800px;
-  margin: 40px 60px 30px 10px;
+  margin: 40px 30px 30px 10px;
   display: flex;
   flex-direction: column;
   // border: 1px solid blue;
@@ -179,26 +179,70 @@
   order: 3;
   // border: 1px solid green;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .showpage-restaurant-details-left {
-  order: 1;
+  // order: 1;
   // border: 1px solid orange;
   color: #C4BfB9;
   width: 50%;
   font-size: 14px;
+  // display: block
 
 }
 
 .showpage-restaurant-details-right {
-  order: 2;
+  order: 3;
   // border: 1px solid orange;
-  color: #E5656E;
+  margin-top: 80px;
+  margin-right: 70px;
   width: 20%;
   text-align: right;
-  font-size: 14px;
+  // font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  // padding-bottom: 20px;
 }
+
+.add-to-fav {
+  order: 1;
+  background-color: #E5656E;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+  // font-size: 20px;
+  // font-weight: 600;
+  font-size: 14px;
+  min-width: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.add-to-fav:hover {
+  background-color: #da2734;
+  cursor: pointer;
+}
+
+.add-review {
+  order: 2;
+  background-color: #40778c;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+  // margin-bottom: 10px;
+  text-align: center;
+  font-size: auto;
+  min-width: 50px;
+  font-size: 14px;
+  // font-weight: 600;
+}
+
+.add-review:hover {
+  background-color: #356273;
+  cursor: pointer;
+}
+
 
 .showpage-header-image {
   width: 100%;
@@ -245,11 +289,7 @@
   width: auto;
   margin: 10px 10px;
 }
-.restaurant-showpage-reviews {
-  border: 1px solid pink;
-  height: 100px;
-  margin: 10px 10px;
-}
+
 
 .add-restaurant-container {
   margin: 0px 40px 40px 40px;
@@ -478,6 +518,7 @@
   // border: 1px solid green;
 }
 
+
 .restaurant-showpage-content-header {
   order: 1;
   border-bottom: 1px solid #CCCCCC;
@@ -486,7 +527,7 @@
 .restaurant-showpage-content-about-text {
   order: 2;
   padding: 0px 20px 0px 20px;
-  margin: 10px 0px 10px 0px;
+  margin: 40px 0px 40px 0px;
 }
 .restaurant-showpage-content-about-map {
   order: 3;
@@ -537,7 +578,8 @@
   background-color: white;
   border-radius: 5px;
   margin: 10px 10px;
-  height: 200px;
+  // height: 200px;
+  display: flex;
   // border: 1px solid green;
 }
 
@@ -772,10 +814,6 @@
   cursor: pointer;
 }
 
-.showpage-restaurant-details-right:hover {
-  color: #DA3743;
-  cursor: pointer;
-}
 
 // .reservation-request-container {
 //   width: 100%;
@@ -907,4 +945,65 @@ h3 {
 .reservation-request-button:hover {
   background-color: #da2734;
   cursor: pointer;
+}
+
+.review-item-container {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.review-item {
+  order: 1;
+  // margin: 20px 10px 20px 10px;
+  height: 100%;
+  // width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid #CCCCCC;
+  margin: 30px 30px 30px 30px;
+}
+
+.review-item-top {
+  order: 1;
+  // border: 1px solid red;
+  // margin: 10px 20px 20px 10px;
+  width: 90%;
+  display: flex;
+  // justify-content: space-between;
+  padding-left: 20px;
+  margin: 10px 20px 0 10px;
+  // min-height: 200px;
+}
+
+.review-item-rate {
+  order: 1;
+  margin-right: 20px;
+
+}
+
+.review-item-author {
+  order: 2;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.review-item-time {
+  order: 3;
+  font-size: 18px;
+}
+
+
+.review-item-body {
+  order: 2;
+  // border: 1px solid red;
+  margin: 10px 20px 20px 10px;
+  min-height: 120px;
+  width: 90%;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
 }

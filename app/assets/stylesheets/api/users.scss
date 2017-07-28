@@ -97,7 +97,7 @@
 
 .user-profile-favorite-lists {
   order: 2;
-  border: 1px solid pink;
+
 
 }
 
@@ -202,23 +202,103 @@
   cursor: pointer;
 }
 
-// handleFavorite(e) {
-//   const upcoming = [];
-//   const past = [];
-//   const today = new Date().toJSON();
-//   console.log(this.props);
-//   // if (this.props.currentUser !== null) {
-//   const allRes = this.props.currentUser.reservations;
-//   allRes.forEach((res) => {
-//     if (Date.parse(today.slice(0,10)) >= Date.parse(res.date)) {
-//       past.push(res);
-//     } else {
-//       upcoming.push(res);
-//     }
-//   });
-//   let favorite = {};
-//   favorite.user_id = this.props.currentUser.id;
-//   if ()
-//   favorite.restaurant_id = e.currentTarget.key
-//
-// }
+.favorite-item {
+  margin: 20px 30px;
+  display: flex;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.favorite-item-left {
+  order: 1;
+  width: 30%
+}
+
+
+.favorite-item-middle {
+  order: 2;
+  width: 40%
+}
+
+.favorite-item-name {
+  order: 1;
+  font-size: 22px;
+  font-weight: 600px;
+  margin-bottom: 20px;
+  margin-left: 20px
+}
+
+.favorite-item-rate {
+  order: 2;
+  // font-size: 16px;
+  margin-left: 20px
+}
+
+.favorite-item-type {
+  order: 3;
+  font-size: 16px;
+  margin-left: 20px
+}
+
+.favorite-item-price {
+  order: 4;
+  font-size: 16px;
+  margin-left: 20px
+}
+
+.favorite-item-right {
+  order: 3;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.unfavorite-form {
+  align-self: flex-end;
+  padding-bottom: 10px;
+}
+
+.unfavorite-button {
+  border-radius: 3px;
+  margin: 0px 10px 20px 10px;
+  padding: 5px 10px 5px 10px;
+  background-color: #DA3743;
+  color: white;
+  text-align: center;
+}
+
+.unfavorite-button:hover {
+  background-color: #c4313c;
+  cursor: pointer;
+}
+
+.review-rate {
+  align-self: center;
+  width: 60%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  align-self: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 150px;
+  text-align: center;
+}
+
+.review-submit-button {
+  border-radius: 3px;
+  margin: 0px 50px 20px 50px;
+  padding: 5px 10px 5px 10px;
+  background-color: #DA3743;
+  color: white;
+  text-align: center;
+}
+
+.review-submit-button:hover {
+  background-color: #c4313c;
+  cursor: pointer;
+}

@@ -44,7 +44,6 @@ class ReviewLists extends Component {
   render() {
 
 
-    console.log(this.props);
     return(
       <div className='review-lists-container'>
         <section className='review-lists-title'>

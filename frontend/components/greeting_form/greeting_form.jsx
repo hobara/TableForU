@@ -13,6 +13,7 @@ class GreetingForm extends React.Component {
     this.sessionLink = this.sessionLink.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
     this.personalGreeting = this.personalGreeting.bind(this);
+    this.goToProfile = this.goToProfile.bind(this);
   }
 
   sessionLink() {
@@ -35,6 +36,7 @@ class GreetingForm extends React.Component {
     return(
       <nav className='header-loggedin'>
         <span className='header-name'>Hi, {this.props.currentUser.username}!</span>
+        <span className='to-profile' onClick={this.goToProfile}>My Profile</span>
         <span className='header-button' onClick={this.props.signout} >Sign Out</span>
       </nav>
     );
@@ -42,6 +44,10 @@ class GreetingForm extends React.Component {
 
   goCityPage(event) {
     this.props.history.push(document.getElementById('location-list').value);
+  }
+
+  goToProfile() {
+    window.location.href = window.location.origin + `/#/users/${this.props.currentUser.id}`;
   }
 
   render() {

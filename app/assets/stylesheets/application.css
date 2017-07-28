@@ -177,6 +177,25 @@ body {
   cursor: pointer;
 }
 
+.to-profile {
+  order: 3;
+  text-decoration: none;
+  /*border: 1px solid blue;*/
+  border-radius: 3px;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 12px 5px 12px;
+  background-color: #40778c;
+  color: white;
+  font-size: 12px;
+}
+
+.to-profile:hover {
+  background-color: #356273;
+  cursor: pointer;
+}
+
+
+
 
 .header-name {
   margin: 5px 10px 0px 0px;

@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllRestaurant, requestSingleRestaurant } from '../../actions/restaurant_actions';
 import ReservationRequestContainer from '../reservation/reservation_request_container';
 import ReviewListsContainer from '../review/review_lists_container';
+import Modal from 'react-modal';
 
 const CUISINE_TYPE = {
   1: 'American',
@@ -41,23 +42,86 @@ const HOURS_TYPE = {
 
 const RATE_TYPE = {
   0: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  1: '',
-  2: '',
-  3: '',
-  4: ''
+  1: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  2: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  3: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  4: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  5: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png'
 };
+
+
+const style = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(400, 400, 400, 0.50)',
+    zIndex: 10
+  },
+  content: {
+    backgroundColor: '#f5f5f5',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    position: 'relative',
+    marginTop: '80px',
+    marginLeft: 'auto',
+    maxMarginLeft: '300px',
+    maxMarginRight: '300px',
+    marginRight: 'auto',
+    maxWidth: '500px',
+    border: '1px solid #ccc',
+    padding: '10px 0px 10px 0px',
+    zIndex: 10,
+    overflow: 'auto'
+  }
+};
+let contentLabel = 'review';
+
 
 
 
 class RestaurantDetail extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      modalOpen: '',
+      rate: '',
+      comment: ''
+    };
+
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
+    this.handleReview = this.handleReview.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderReview = this.renderReview.bind(this);
+
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestAllRestaurant();
     this.props.requestSingleRestaurant(this.props.match.params.restaurant_id);
+    this.props.requestAllReview();
+
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: '' });
+  }
+
+  openModal(type) {
+    this.setState({ modalOpen: type });
+  }
+
+  update(key) {
+    return event => this.setState({
+      [key]: event.currentTarget.value
+    });
   }
 
   scrollTo(el) {
@@ -66,8 +130,75 @@ class RestaurantDetail extends Component {
     };
   }
 
-  render() {
+  handleFavorite() {
+    let favorite = {};
+    favorite.user_id = this.props.currentUser.id;
+    favorite.restaurant_id = this.props.restaurant.id;
+    this.props.addFavorite({favorite: favorite});
+    window.alert('Thank you for adding a favorite!');
+  }
+
+  handleReview() {
+    this.openModal('review');
+  }
+
+  handleSubmit() {
+    let review = {};
+    const allIds = [];
+    this.props.currentUser.reservations.forEach((res) => {
+      allIds.push(res.restaurant.id);
+    });
+    if (allIds.includes(this.props.restaurant.id)) {
+      let idx = allIds.indexOf(this.props.restaurant.id);
+      review.reservation_id = this.props.currentUser.reservations[idx].reservation_id;
+      review.user_id = this.props.currentUser.id;
+      review.restaurant_id = this.props.restaurant.id;
+      review.rate = parseInt(this.state.rate);
+      review.comment = this.state.comment;
+      console.log(review);
+      this.props.createReview({review: review});
+      window.alert('Thank you for submitting a review!');
+      this.closeModal();
+      this.props.requestSingleRestaurant(this.props.match.params.restaurant_id);
+    } else {
+      window.alert("Oh it seems you haven't reserved this restaurant. Please reserve a table and come back to write a review!");
+    }
+  }
+
+  renderReview() {
     console.log(this.props);
+    if (this.props.restaurant.reviews) {
+    return (
+      <div className='review-item-container'>
+        <span className='restaurant-showpage-content-photo-header'><h2>Rating and Reviews</h2></span>
+        {this.props.restaurant.reviews.map((rev, idx) => (
+          <div className='review-item'>
+            <section className='review-item-top'>
+              <span className='review-item-rate'>
+                <img src={RATE_TYPE[rev.rate]} />
+              </span>
+              <span className='review-item-author'>
+                {rev.username}
+              </span>
+              <span className='review-item-time'>
+                {rev.created_at.slice(0,10)}
+              </span>
+            </section>
+            <section className='review-item-body'>
+              <span className='review-item-comment'>
+                {rev.comment}
+              </span>
+            </section>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  }
+
+
+  render() {
+    // console.log(this.props);
     return (
       <div className='restaurant-showpage-background'>
         <div className='restaurant-showpage-header'>
@@ -78,14 +209,15 @@ class RestaurantDetail extends Component {
               <section className='showpage-restaurant-name'>{this.props.restaurant.name}</section>
               <section className='showpage-restaurant-rate'><img src={RATE_TYPE[this.props.restaurant.rate]}/></section>
               <section className='showpage-restaurant-details'>
-                <span className='showpage-restaurant-details-left'>
+                <section className='showpage-restaurant-details-left'>
                   {CUISINE_TYPE[this.props.restaurant.cuisine]} | {this.props.restaurant.city_name}  |
                     Price: {PRICE_TYPE[this.props.restaurant.price]}
-                </span>
-                <span className='showpage-restaurant-details-right'>
-                  Favorites
-                </span>
+                </section>
               </section>
+            </section>
+            <section className='showpage-restaurant-details-right'>
+              <span className='add-to-fav' onClick={this.handleFavorite}>Add to Favorites</span>
+              <span className='add-review' onClick={this.handleReview}>Add Review</span>
             </section>
         </div>
         <div className='restaurant-showpage-main-container'>
@@ -103,15 +235,14 @@ class RestaurantDetail extends Component {
                 <ReservationRequestContainer />
               </div>
               <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
-                <section className='restaurant-showpage-content-header'>
+                <span className='restaurant-showpage-content-header'>
                   <h2>About {this.props.restaurant.name}</h2>
-                </section>
+                </span>
                 <section className='restaurant-showpage-content-about-text'>
                   {this.props.restaurant.about}
                 </section>
-                <section className='restaurant-showpage-content-about-map'>
-                  <span>**Google Map Container**</span>
-                </section>
+                <br />
+                <br />
               </div>
               <div ref={ el => this.photosSection = el } className='restaurant-showpage-photos' name='photos'>
                 <span className='restaurant-showpage-content-photo-header'>
@@ -122,7 +253,7 @@ class RestaurantDetail extends Component {
                 <img src={this.props.restaurant.image3} className='restaurant-showpage-photo'/>
               </div>
               <div ref={ el => this.reviewsSection = el } className='restaurant-showpage-reviews' name='reviews'>
-                <ReviewListsContainer />
+                {this.renderReview()}
               </div>
             </div>
             <nav className='restaurant-showpage-detail-right'>
@@ -139,7 +270,32 @@ class RestaurantDetail extends Component {
             </nav>
           </div>
         </div>
-        <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
+
+        <Modal
+          style={style}
+          contentLabel={contentLabel}
+          isOpen={this.state.modalOpen === 'review'}
+          className='review-form-container'
+          onRequestClose={this.closeModal}
+          >
+          <span className='signup-modal-container'>
+            <span className='signup-form-header'>Please share your experience</span>
+            <select className='review-rate'
+              value={this.state.rate} onChange={this.update('rate')} >
+              <option defaultValue hidden >Rate your dining experience</option>
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+            <input type='textarea' className='review-text' placeholder='  Write review here*'
+              value={this.state.comment} onChange={this.update('comment')} />
+
+            <span className='review-submit-button' onClick={this.handleSubmit}>Submit Review</span>
+          </span>
+        </Modal>
+
       </div>
     );
   }

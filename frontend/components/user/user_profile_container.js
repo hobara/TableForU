@@ -3,19 +3,21 @@ import UserProfile from './user_profile';
 import { requestAllReservation } from '../../actions/reservation_actions';
 import { requestAllRestaurant } from '../../actions/restaurant_actions';
 import { createReview } from '../../actions/review_actions';
-// import { addFavorite, removeFavorite } from '../../actions/favorite_actions';
+import { addFavorite, removeFavorite, requestAllFavorite } from '../../actions/favorite_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
   restaurants: state.restaurants,
   reservations: state.reservations,
-  reviews: state.reviews
+  reviews: state.reviews,
+  // favorites: state.favorites
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllReservation: () => dispatch(requestAllReservation()),
   requestAllRestaurant: () => dispatch(requestAllRestaurant()),
-  createReview: (review) => dispatch(createReview())
+  createReview: (review) => dispatch(createReview()),
+  // requestAllFavorite: () => dispatch(requestAllFavorite())
   // addFavorite: (favorite) => dispatch(addFavorite()),
   // removeFavorite: (favorite) => dispatch(removeFavorite())
 
