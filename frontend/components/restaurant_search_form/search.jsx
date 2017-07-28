@@ -220,7 +220,7 @@ class SearchForm extends Component {
             <span className='search-restaurant'>
               <input className='search-restaurant-input'
               onChange={this.handleInput}
-              value={  this.state.inputVal}
+              value={this.state.inputVal}
               placeholder='Search Restaurant'/>
               <ul className='search-result'>
                 <CSSTransitionGroup

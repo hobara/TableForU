@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import GreetingContainer from '../greeting_form/greeting_form_container';
 import { requestAllRestaurant, requestSingleRestaurant } from '../../actions/restaurant_actions';
-import ReservationRequestForm from '../reservation/reservation_request_container';
+import ReservationRequestContainer from '../reservation/reservation_request_container';
+import ReviewListsContainer from '../review/review_lists_container';
 
 const CUISINE_TYPE = {
   1: 'American',
@@ -99,7 +100,7 @@ class RestaurantDetail extends Component {
           <div className='restaurant-showpage-main'>
             <div className='restaurant-showpage-main-content'>
               <div ref={ el => this.reservationSection = el } className='restaurant-showpage-reservation' name='reservation'>
-                <ReservationRequestForm />
+                <ReservationRequestContainer />
               </div>
               <div ref={ el => this.aboutSection = el } className='restaurant-showpage-content-about' id='about'>
                 <section className='restaurant-showpage-content-header'>
@@ -121,7 +122,7 @@ class RestaurantDetail extends Component {
                 <img src={this.props.restaurant.image3} className='restaurant-showpage-photo'/>
               </div>
               <div ref={ el => this.reviewsSection = el } className='restaurant-showpage-reviews' name='reviews'>
-                review...coming soon
+                <ReviewListsContainer />
               </div>
             </div>
             <nav className='restaurant-showpage-detail-right'>

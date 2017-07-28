@@ -5,6 +5,9 @@ import CityReducer from './city_reducer';
 import CitiesReducer from './cities_reducer';
 import RestaurantReducer from './restaurant_reducer';
 import RestaurantsReducer from './restaurants_reducer';
+import ReservationsReducer from './reservations_reducer';
+import ReviewsReducer from './reviews_reducer';
+import FavoritesReducer from './favorites_reducer';
 
 const RootReducer = combineReducers({
   currentUser: SessionReducer,
@@ -12,6 +15,9 @@ const RootReducer = combineReducers({
   cities: CitiesReducer,
   restaurant: RestaurantReducer,
   restaurants: RestaurantsReducer,
+  reservations: ReservationsReducer,
+  reviews: ReviewsReducer,
+  favorites: FavoritesReducer,
   errors: ErrorsReducer
 });
 
