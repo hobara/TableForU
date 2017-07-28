@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170725050142) do
     t.integer "restaurant_id", null: false
     t.integer "seats", null: false
     t.string "date", null: false
-    t.integer "time", null: false
+    t.string "time", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|

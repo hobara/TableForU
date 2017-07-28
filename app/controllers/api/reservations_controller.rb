@@ -5,8 +5,12 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render '/api/reservations/show'
     else
-      render json: @reservation.errors.full_messages, status: 422
+      render json: {base: @reservation.errors.full_messages}, status: 422
     end
+  end
+
+  def index
+    @reservations = Reservation.all
   end
 
   def show

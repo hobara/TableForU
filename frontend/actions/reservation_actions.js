@@ -25,7 +25,7 @@ export const requestSingleReservation = (id) => dispatch => (
 export const createReservation = (reservation) => dispatch => (
   APIUtil.createReservation(reservation)
     .then((newReservation) => {
-      dispatch(receiveSingleReservation(newReservation));
+      dispatch(receiveSingleReservation(newReservation.id));
       dispatch(clearErrors());
     }, err => (dispatch(receiveErrors(err.responseJSON))))
 );

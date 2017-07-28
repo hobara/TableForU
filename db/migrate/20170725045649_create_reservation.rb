@@ -5,7 +5,7 @@ class CreateReservation < ActiveRecord::Migration[5.1]
       t.integer :restaurant_id, null: false
       t.integer :seats, null: false
       t.string :date, null: false
-      t.integer :time, null: false
+      t.string :time, null: false
     end
   end
 end

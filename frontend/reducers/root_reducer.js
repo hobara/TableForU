@@ -8,6 +8,7 @@ import RestaurantsReducer from './restaurants_reducer';
 import ReservationsReducer from './reservations_reducer';
 import ReviewsReducer from './reviews_reducer';
 import FavoritesReducer from './favorites_reducer';
+import UsersReducer from './users_reducer';
 
 const RootReducer = combineReducers({
   currentUser: SessionReducer,
@@ -18,6 +19,7 @@ const RootReducer = combineReducers({
   reservations: ReservationsReducer,
   reviews: ReviewsReducer,
   favorites: FavoritesReducer,
+  users: UsersReducer,
   errors: ErrorsReducer
 });
 

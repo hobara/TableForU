@@ -1,15 +1,25 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { requestAllRestaurant, requestSingleRestaurant } from '../../actions/restaurant_actions';
+import { requestAllReservation } from '../../actions/reservation_actions';
+import { requestAllRestaurant } from '../../actions/restaurant_actions';
+import { createReview } from '../../actions/review_actions';
+// import { addFavorite, removeFavorite } from '../../actions/favorite_actions';
 
 const mapStateToProps = (state) => ({
-  restaurant: state.restaurant,
-  restaurants: state.restaurants
+  currentUser: state.currentUser,
+  restaurants: state.restaurants,
+  reservations: state.reservations,
+  reviews: state.reviews
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  requestAllReservation: () => dispatch(requestAllReservation()),
   requestAllRestaurant: () => dispatch(requestAllRestaurant()),
-  requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id))
+  createReview: (review) => dispatch(createReview())
+  // addFavorite: (favorite) => dispatch(addFavorite()),
+  // removeFavorite: (favorite) => dispatch(removeFavorite())
+
+  // requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id))
 });
 
 export default connect(

@@ -1,3 +1,224 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-profile-main {
+  background-color: #F8F8F8;
+  border-top: 1px solid #F5F5F5;
+  margin-top: 100px;
+}
+
+.user-profile-nav {
+  // margin: 30px, 20px, 0px, 20px;
+  max-width: 180px;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 8rem;
+  bottom: 0;
+  left: 30px;
+  padding: 1.875rem 0 1rem;
+  // border: 1px solid red;
+}
+
+.user-nav-link {
+  margin: 20px 10px 20px 10px;
+  color: #356273;
+  // border: 1px solid blue;
+}
+
+.user-nav-link:hover {
+  cursor: pointer;
+  color: #E5656E;
+}
+
+.user-profile-content {
+  padding-left: 250px;
+  margin-top: 0px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+}
+
+.user-profile-upcoming-reservation {
+  order: 1;
+  // border: 1px solid blue;
+  margin: 20px 30px 20px 0px;
+  padding: 0px 20px 20px 20px;
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-content-title {
+  order: 1;
+  padding-left: 20px;
+  // padding-right: 20px;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 20px;
+}
+
+.user-profile-upcoming-lists {
+  order: 2;
+  // border: 1px solid pink;
+}
+
+
+.user-profile-past-reservation {
+  order: 2;
+  // border: 1px solid blue;
+  margin: 20px 30px 20px 0px;
+  padding: 0px 20px 20px 20px;
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-past-lists {
+  order: 2;
+  // border: 1px solid pink;
+
+}
+
+.user-profile-favorite {
+  order: 3;
+  // border: 1px solid blue;
+  margin: 20px 30px 20px 0px;
+  padding: 0px 20px 20px 20px;
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-favorite-lists {
+  order: 2;
+  border: 1px solid pink;
+
+}
+
+.upcoming-item {
+  margin: 20px 30px;
+  display: flex;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.upcoming-item-left {
+  order: 1;
+  width: 30%
+}
+
+.upcoming-res-img {
+  max-width: 200px;
+  border-radius: 5px;
+}
+
+.upcoming-item-middle {
+  order: 2;
+  width: 40%
+}
+
+.upcoming-res-name {
+  order: 1;
+  font-size: 22px;
+  font-weight: 600px;
+  margin-bottom: 45px;
+  margin-left: 20px
+}
+
+.upcoming-res-date {
+  order: 2;
+  font-size: 16px;
+  margin-left: 20px
+}
+
+.upcoming-res-seats {
+  order: 3;
+  font-size: 16px;
+  margin-left: 20px
+}
+
+
+
+.upcoming-item-right {
+  order: 3;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.write-review-form {
+  align-self: flex-end;
+  padding-bottom: 10px;
+}
+
+.write-review-button {
+  border-radius: 3px;
+  margin: 0px 10px 20px 10px;
+  padding: 5px 10px 5px 10px;
+  background-color: #DA3743;
+  color: white;
+  text-align: center;
+}
+
+.write-review-button:hover {
+  background-color: #c4313c;
+  cursor: pointer;
+}
+
+.review-rate {
+  align-self: center;
+  width: 60%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  align-self: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 150px;
+  text-align: center;
+}
+
+.review-submit-button {
+  border-radius: 3px;
+  margin: 0px 50px 20px 50px;
+  padding: 5px 10px 5px 10px;
+  background-color: #DA3743;
+  color: white;
+  text-align: center;
+}
+
+.review-submit-button:hover {
+  background-color: #c4313c;
+  cursor: pointer;
+}
+
+// handleFavorite(e) {
+//   const upcoming = [];
+//   const past = [];
+//   const today = new Date().toJSON();
+//   console.log(this.props);
+//   // if (this.props.currentUser !== null) {
+//   const allRes = this.props.currentUser.reservations;
+//   allRes.forEach((res) => {
+//     if (Date.parse(today.slice(0,10)) >= Date.parse(res.date)) {
+//       past.push(res);
+//     } else {
+//       upcoming.push(res);
+//     }
+//   });
+//   let favorite = {};
+//   favorite.user_id = this.props.currentUser.id;
+//   if ()
+//   favorite.restaurant_id = e.currentTarget.key
+//
+// }

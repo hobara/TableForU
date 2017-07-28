@@ -40,10 +40,10 @@ const style = {
     marginTop: '80px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '300px',
+    maxWidth: '305px',
     border: '1px solid #ccc',
     padding: '10px',
-    zIndex: 900,
+    zIndex: 10,
     overflow: 'auto'
   }
 };
@@ -54,7 +54,7 @@ class ReservationRequestForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false,
+      modalOpen: '',
       // showResult: false,
       seats: '2',
       date: '',
@@ -72,14 +72,26 @@ class ReservationRequestForm extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.showTimeSlot = this.showTimeSlot.bind(this);
     this.handleReserve = this.handleReserve.bind(this);
+    this.goToProfile = this.goToProfile.bind(this);
+    // this.handleReserved = this.handleReserved.bind(this);
   }
+
+  componentWillMount() {
+    this.props.requestAllReservation();
+  }
+  //
+  // componentWillUnmount() {
+  //   this.props.resetReservation();
+  // }
+
+
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: '' });
   }
 
-  openModal() {
-    this.setState({ modalOpen: true });
+  openModal(name) {
+    this.setState({ modalOpen: name });
   }
 
   update(key) {
@@ -145,27 +157,28 @@ class ReservationRequestForm extends Component {
 
 
   handleSeats(event) {
-    console.log(this.state);
     this.setState({seats: event.currentTarget.value});
   }
 
   handleDate(event) {
-    console.log(this.state);
     this.setState({date: event.currentTarget.value});
   }
 
   handleTime(event) {
-    console.log(this.state);
     this.setState({time: event.currentTarget.value});
   }
 
 
   handleClick() {
-    console.log(this.state);
-    console.log(this.props);
-
-    this.openModal();
-
+    if (this.state.date === '' && this.state.time === '') {
+      window.alert('Please select date and time.');
+    } else if (this.state.date === '') {
+      window.alert('Please select date.');
+    } else if (this.state.time === '') {
+      window.alert('Please select time.');
+    } else {
+     this.openModal('reserve');
+   }
 
     // this.renderResult();
     // window.location.href = window.location.href;
@@ -178,24 +191,37 @@ class ReservationRequestForm extends Component {
       const idx = timeSlots.indexOf(selectedTime);
       const availableSlots = timeSlots.slice(idx);
       return(
-        <div className='available-slots'>
-          <section>Name: {window.store.getState().currentUser.username}</section>
-          <section>Date: {this.state.date}</section>
-          <section>Guests: {this.state.seats}</section>
-          {availableSlots.map((slot, i) =>
-            <section key={i} className='slot-item'>
-              <span onClick={this.handleReserve}>{slot}</span>
-            </section>
-          )}
+        <div className='available-slot'>
+          <section className='slot-list-name'>Name: &nbsp; {window.store.getState().currentUser.username}</section>
+          <section className='slot-list-date'>Date: &nbsp; {this.state.date}</section>
+          <section className='slot-list-guest'>Number of Guests: &nbsp; {this.state.seats}</section>
+          <section className='slot-list'>
+            {availableSlots.map((slot, i) =>
+              <span key={i} onClick={this.handleReserve} className='slot-item'>{slot}</span>
+            )}
+          </section>
         </div>
       );
     }
   }
 
   handleReserve() {
-    console.log(this.state);
-    console.log(this.props);
-    this.closeModal();
+    let res = {};
+    res.date = this.state.date;
+    res.seats = parseInt(this.state.seats);
+    res.time = this.state.time;
+    res.user_id = this.props.currentUser.id;
+    res.restaurant_id = this.props.restaurant.id;
+    console.log(res);
+    this.props.createReservation({reservation: res});
+    // console.log(this.props);
+    // this.props.currentUser.reservations.push({})
+    // this.handleReserved();
+    this.openModal('reserved');
+  }
+
+  goToProfile() {
+    window.location.href = window.location.origin + `/#/users/${this.props.currentUser.id}`;
   }
 
 
@@ -235,14 +261,26 @@ class ReservationRequestForm extends Component {
           <Modal
             style={style}
             contentLabel={contentLabel}
-            isOpen={this.state.modalOpen === true}
+            isOpen={this.state.modalOpen === 'reserve'}
             className='reservation-form'
             onRequestClose={() => this.closeModal()}
             >
-            <span className='signup-modal-container'>
-              <span className='signup-form-header'>Please select time</span>
+            <span className='reservation-modal-container'>
+              <span className='reservation-select-time'>Select time for reservation</span>
               {this.renderResult()}
-              <span className='signup-button' onClick={this.handleReserve}>Reserve seats!</span>
+            </span>
+          </Modal>
+
+          <Modal
+            style={style}
+            contentLabel={contentLabel}
+            isOpen={this.state.modalOpen === 'reserved'}
+            className='reservation-form'
+            onRequestClose={() => this.closeModal()}
+            >
+            <span className='reservation-modal-container'>
+              <span className='reservation-select-time'>Thank you for reservation!</span>
+              <span className='go-to-user-profile' onClick={() => this.goToProfile()}>View reservation</span>
             </span>
           </Modal>
 
