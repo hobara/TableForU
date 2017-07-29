@@ -88,8 +88,7 @@ class UserProfile extends Component {
           <section key={idx} className='upcoming-item'>
             <section className='upcoming-item-left'>
               <img className='upcoming-res-img'
-                src={this.props.restaurants[res.restaurant.id].image1}
-                  />
+                src={this.props.restaurants[res.restaurant.id].image1}/>
             </section>
             <section className='upcoming-item-middle'>
               <section className='upcoming-res-name'>

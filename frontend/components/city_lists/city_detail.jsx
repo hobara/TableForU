@@ -15,7 +15,7 @@ class CityDetail extends Component {
   }
 
   render() {
-    console.log('hey', this.props);
+
     let city = { name: '', image:'', city_id: '' };
     let id = this.props.match.params.city_id;
     let allIds = Object.keys(this.props.cities);

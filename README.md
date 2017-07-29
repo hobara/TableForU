@@ -1,62 +1,50 @@
 <h1>TableForU<h1>
 
-TableForU (https://table-for-you.herokuapp.com/)
+[heroku]: https://table-for-you.herokuapp.com/
 
-TableForU is a full-stack web application inspired by OpenTable. This application is   on Ruby on Rails on the backend, a PostgreSQL database, React.js with Redux architectural framework ont
+[TableForU][heroku] is a full-stack web application inspired by OpenTable, it allows you to search and reserve restaurants at ease.
+This application is built with Ruby on Rails on the backend, a PostgreSQL database, React.js and Redux architectural framework on the frontend.  
 
 
+![homescreen](./app/assets/images/home.png)
+
+<h3>City and Restaurants<h3>
+In the database, each restaurant is grouped inside the city with city_id. So when the city is called, the relative restaurants are also accessible from the users. Most of us will benefit from it, when it comes to searching restaurants in the specific area.   
+
+![homescreen](./app/assets/images/home2.png)
+
+<h3>Create and Search Restaurants<h3>
+This application can be scaled by adding more restaurants. By clicking the "join button" at the bottom of the page, you can add your restaurant and take reservations from users. After the submission, your restaurant will be available on the list and also will be searched by users. Currently, with this limited numbers of restaurants, search functions will find matches based on every single character you typed in and display.
+
+![homescreen](./app/assets/images/restaurant.png)
+
+<h3>Make Reservations<h3>
+Reservation form exists inside each restaurant's page. Once you select the time and submit the form, it will hit the database and will be stored in the joint table between users and restaurants with the specific date and time. This allows us to manage and keep track of records. In your profile page, all reservations are sorted and stored either in Upcoming reservations or Past reservations. All you favorites restaurants are also listed and can be edited in the profile page.
 
 
-<h2>TableForYou</h2>
+```upcomingReservations() {
+    const upcoming = [];
+    const past = [];
+    const today = new Date().toJSON();
+    const allRes = this.props.currentUser.reservations;
+    allRes.forEach((res) => {
+      if (Date.parse(today.slice(0,10)) >= Date.parse(res.date)) {
+        past.push(res);
+      } else {
+        upcoming.push(res);
+      }
+    });
 
-* Heroku:
-* Trello: (https://trello.com/b/wPp6q6sR/tableforyou)
+    return(
+      <div>
+        {upcoming.map((res, idx) =>
+          <section key={idx} className='upcoming-item'>
+            <section className='upcoming-item-left'>
+              <img className='upcoming-res-img'
+                src={this.props.restaurants[res.restaurant.id].image1}/>
+            </section>
+```
 
-<h2>Minimum Viable Product</h2>
 
-TableForYou is a web application inspired by OpenTable.
-This web application is built with a Ruby on Rails backend and React/Redux frontend.
-This app will satisfy the following criterial with smooth, bug-free navigation, and sufficient CSS styling:
-
-- [ ] Hosting on Heroku
-- [ ] Production README
-- [ ] New Account Creation / Login, Guest demo login
-- [ ] Create and search restaurants
-- [ ] Reservations
-- [ ] Ratings/reviews
-- [ ] Favorites
-
-<h2>Design Docs</h2>
-
-* [View Wireframes] (https://github.com/hobara/OpenTable/tree/master/docs/wireframes)
-* [React Components] (https://github.com/hobara/OpenTable/blob/master/docs/component-hierarchy.md)
-* [API Endpoints] (https://github.com/hobara/OpenTable/blob/master/docs/api-endpoints.md)
-* [DB Schema] (https://github.com/hobara/OpenTable/blob/master/docs/schema.md)
-* [Sample State] (https://github.com/hobara/OpenTable/blob/master/docs/sample-state.md)
-
-<h2>Implementation Timeline</h2>
-
-<h3>Phase 1: Backend setup and Frontend Auth (2 days)</h3>
-
-<b>Objective:</b> Functional rails project with backend and frontend authentication.
-
-<h3>Phase 2: Restaurants Model, API, and Components (2 days)</h3>
-
-<b>Objective:</b> Restaurants can be created, viewed, edited and destroyed.
-
-<h3>Phase 3: Reservations (1 day)</h3>
-
-<b>Objective:</b> Users can search for restaurants and make/destroy reservations.
-
-<h3>Phase 4: Ratings and Reviews (1 day)</h3>
-
-<b>Objective:</b> Users can write, edit, view, and destroy reviews.
-
-<h3>Phase 5: Favorites and CSS (2 day)</h3>
-
-<b>Objective:</b> Users can add, view, and remove favorite restaurants. Add CSS.
-
-<h3>Bonus Features (TBD)</h3>
-
-- [ ] Discover / Explore
-- [ ] Points for bookings and usage of site
+<h3>Rating, Reviews and Favorites<h3>
+Once your reservation day passed, the review form will be available for you to share the experience. Those rating and reviews are made only by registered users. When unauthorised users try to access, they will be encouraged to sign up or will be redirected to homepage by protected routes.
