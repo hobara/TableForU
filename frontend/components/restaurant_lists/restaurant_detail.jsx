@@ -41,14 +41,49 @@ const HOURS_TYPE = {
 };
 
 const RATE_TYPE = {
-  0: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  1: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  2: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  3: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  4: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  5: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png'
+  0:  <span className='review-item-rate'>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+      </span>,
+  1: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  2: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  3: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  4: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  5: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+    </span>
 };
-
 
 const style = {
   overlay: {
@@ -81,8 +116,6 @@ const style = {
 let contentLabel = 'review';
 
 
-
-
 class RestaurantDetail extends Component {
   constructor(props) {
     super(props);
@@ -92,21 +125,19 @@ class RestaurantDetail extends Component {
       rate: '',
       comment: ''
     };
-
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
+    this.openReviewForm = this.openReviewForm.bind(this);
     this.handleReview = this.handleReview.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.renderReview = this.renderReview.bind(this);
-
   }
 
   componentWillMount() {
     this.props.requestAllRestaurant();
     this.props.requestSingleRestaurant(this.props.match.params.restaurant_id);
-    this.props.requestAllReview();
+    // this.props.requestAllReview();
 
   }
 
@@ -134,15 +165,22 @@ class RestaurantDetail extends Component {
     let favorite = {};
     favorite.user_id = this.props.currentUser.id;
     favorite.restaurant_id = this.props.restaurant.id;
-    this.props.addFavorite({favorite: favorite});
-    window.alert('Thank you for adding a favorite!');
+    const favList = this.props.currentUser.favorites;
+    const favResId = [];
+    favList.forEach((fav) => {favResId.push(fav.restaurant_id);});
+    if (favResId.includes(this.props.restaurant.id)) {
+      window.alert('You already have this in your favorite list.');
+    } else {
+      this.props.addFavorite({favorite: favorite});
+      window.alert('Thank you for adding to favorites!');
+    }
   }
 
-  handleReview() {
+  openReviewForm() {
     this.openModal('review');
   }
 
-  handleSubmit() {
+  handleReview() {
     let review = {};
     const allIds = [];
     this.props.currentUser.reservations.forEach((res) => {
@@ -155,33 +193,30 @@ class RestaurantDetail extends Component {
       review.restaurant_id = this.props.restaurant.id;
       review.rate = parseInt(this.state.rate);
       review.comment = this.state.comment;
-      console.log(review);
       this.props.createReview({review: review});
       window.alert('Thank you for submitting a review!');
       this.closeModal();
       this.props.requestSingleRestaurant(this.props.match.params.restaurant_id);
     } else {
-      window.alert("Oh it seems you haven't reserved this restaurant. Please reserve a table and come back to write a review!");
+      window.alert("Oh it seems you haven't reserved this restaurant. Please write a review after reservation!");
     }
   }
 
   renderReview() {
-    console.log(this.props);
     if (this.props.restaurant.reviews) {
     return (
       <div className='review-item-container'>
         <span className='restaurant-showpage-content-photo-header'><h2>Rating and Reviews</h2></span>
         {this.props.restaurant.reviews.map((rev, idx) => (
-          <div className='review-item'>
+          <div className='review-item' key={idx}>
             <section className='review-item-top'>
-              <span className='review-item-rate'>
-                <img src={RATE_TYPE[rev.rate]} />
-              </span>
+              {RATE_TYPE[rev.rate]}
               <span className='review-item-author'>
-                {rev.username}
+                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                &nbsp; {rev.username}
               </span>
               <span className='review-item-time'>
-                {rev.created_at.slice(0,10)}
+                - comment on &nbsp; {rev.created_at.slice(0,10)}
               </span>
             </section>
             <section className='review-item-body'>
@@ -192,13 +227,24 @@ class RestaurantDetail extends Component {
           </div>
         ))}
       </div>
-    );
+      );
+    }
   }
-  }
-
 
   render() {
-    // console.log(this.props);
+    let averageRate = 0;
+    if (Object.keys(this.props.restaurant).length > 0) {
+      let totalRate = 0;
+      let allReviews = this.props.restaurant.reviews;
+      allReviews.map((rev) => {
+        totalRate = totalRate + rev.rate;
+      });
+      if (totalRate === 0) {
+        averageRate = 0;
+      } else {
+        averageRate = Math.floor(totalRate/allReviews.length);
+      }
+    }
     return (
       <div className='restaurant-showpage-background'>
         <div className='restaurant-showpage-header'>
@@ -207,7 +253,7 @@ class RestaurantDetail extends Component {
             </span>
             <section className='showpage-header-right'>
               <section className='showpage-restaurant-name'>{this.props.restaurant.name}</section>
-              <section className='showpage-restaurant-rate'><img src={RATE_TYPE[this.props.restaurant.rate]}/></section>
+              <section className='showpage-restaurant-rate'>{RATE_TYPE[averageRate]}</section>
               <section className='showpage-restaurant-details'>
                 <section className='showpage-restaurant-details-left'>
                   {CUISINE_TYPE[this.props.restaurant.cuisine]} | {this.props.restaurant.city_name}  |
@@ -217,7 +263,7 @@ class RestaurantDetail extends Component {
             </section>
             <section className='showpage-restaurant-details-right'>
               <span className='add-to-fav' onClick={this.handleFavorite}>Add to Favorites</span>
-              <span className='add-review' onClick={this.handleReview}>Add Review</span>
+              <span className='add-review' onClick={this.openReviewForm}>Add Review</span>
             </section>
         </div>
         <div className='restaurant-showpage-main-container'>
@@ -241,11 +287,9 @@ class RestaurantDetail extends Component {
                 <section className='restaurant-showpage-content-about-text'>
                   {this.props.restaurant.about}
                 </section>
-                <br />
-                <br />
               </div>
               <div ref={ el => this.photosSection = el } className='restaurant-showpage-photos' name='photos'>
-                <span className='restaurant-showpage-content-photo-header'>
+                <span className='restaurant-showpage-content-header'>
                   <h2>Photos</h2>
                 </span>
                 <img src={this.props.restaurant.image1} className='restaurant-showpage-photo'/>
@@ -266,7 +310,7 @@ class RestaurantDetail extends Component {
               <section className='detail-right-price'>Price Ranages: </section>
               <section className='detail-right-data'>{PRICE_RANGE[this.props.restaurant.price]}</section>
               <section className='detail-right-web'>Web Site: </section>
-              <section className='detail-right-web-data'>{'https://table-for-u.herokuapp.com'}</section>
+              <section className='detail-right-web-data'><Link to='https://table-for-u.herokuapp.com'>'https://table-for-u.herokuapp.com'</Link></section>
             </nav>
           </div>
         </div>
@@ -292,7 +336,7 @@ class RestaurantDetail extends Component {
             <input type='textarea' className='review-text' placeholder='  Write review here*'
               value={this.state.comment} onChange={this.update('comment')} />
 
-            <span className='review-submit-button' onClick={this.handleSubmit}>Submit Review</span>
+            <span className='review-submit-button' onClick={this.handleReview}>Submit Review</span>
           </span>
         </Modal>
 

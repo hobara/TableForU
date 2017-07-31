@@ -110,12 +110,15 @@
 
 .upcoming-item-left {
   order: 1;
-  width: 30%
+  width: 200px;
 }
 
 .upcoming-res-img {
   max-width: 200px;
   border-radius: 5px;
+}
+.upcoming-res-img:hover {
+  opacity: 0.8;
 }
 
 .upcoming-item-middle {
@@ -123,24 +126,43 @@
   width: 40%
 }
 
+.upcoming-res-name-link {
+  text-decoration: none;
+  color: #444444;
+}
+
+.upcoming-res-name-link:hover {
+  color: #E5656E;
+}
+
 .upcoming-res-name {
   order: 1;
-  font-size: 22px;
-  font-weight: 600px;
-  margin-bottom: 45px;
+  font-weight: 800;
+  font-size: 24px;
+  padding-top: 5px;
+  margin-bottom: 20px;
   margin-left: 20px
 }
 
 .upcoming-res-date {
   order: 2;
   font-size: 16px;
-  margin-left: 20px
+  margin-left: 20px;
+  color: #DA3743;
+}
+
+.upcoming-res-time {
+  order: 3;
+  font-size: 16px;
+  margin-left: 20px;
+  color: #DA3743;
 }
 
 .upcoming-res-seats {
-  order: 3;
+  order: 4;
   font-size: 16px;
-  margin-left: 20px
+  margin-left: 20px;
+  color: #DA3743;
 }
 
 
@@ -211,7 +233,7 @@
 
 .favorite-item-left {
   order: 1;
-  width: 30%
+  width: 200px;
 }
 
 
@@ -220,10 +242,20 @@
   width: 40%
 }
 
+.favorite-item-name-link {
+  text-decoration: none;
+  color: #444444;
+}
+
+.favorite-item-name-link:hover {
+  color: #E5656E;
+}
+
 .favorite-item-name {
   order: 1;
-  font-size: 22px;
-  font-weight: 600px;
+  font-weight: 800;
+  font-size: 24px;
+  padding-top: 5px;
   margin-bottom: 20px;
   margin-left: 20px
 }

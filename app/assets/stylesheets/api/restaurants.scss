@@ -179,7 +179,6 @@
   order: 3;
   // border: 1px solid green;
   display: flex;
-  justify-content: space-around;
 }
 
 .showpage-restaurant-details-left {
@@ -188,6 +187,7 @@
   color: #C4BfB9;
   width: 50%;
   font-size: 14px;
+  align-self: flex-start;
   // display: block
 
 }
@@ -214,7 +214,7 @@
   // font-size: 20px;
   // font-weight: 600;
   font-size: 14px;
-  min-width: 50px;
+  width: 100px;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -233,7 +233,7 @@
   // margin-bottom: 10px;
   text-align: center;
   font-size: auto;
-  min-width: 50px;
+  width: 100px;
   font-size: 14px;
   // font-weight: 600;
 }
@@ -452,9 +452,9 @@
 
 .restaurant-showpage-main {
   order: 2;
-  padding-left: 160px;
+  padding-left: 150px;
   margin: 20px 40px 20px 20px;
-  max-width: 1000px;
+  max-width: 1100px;
   // border: 1px solid red;
   position: relative;
   // z-index: -1;
@@ -469,6 +469,7 @@
   // border: 1px solid blue;
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .page-nav-link {
@@ -492,7 +493,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  // border: 1px solid red;
 }
 
 .restaurant-showpage-reservation {
@@ -502,8 +502,6 @@
   margin: 10px 10px;
   height: auto;
   display: flex;
-  // align-content: center;
-  // border: 1px solid green;
 }
 
 
@@ -512,22 +510,24 @@
   background-color: white;
   border-radius: 5px;
   margin: 10px 10px;
-  // height: 200px;
+  flex-shrink: 1;
+  // width: auto;
+  // height: auto;
+  // overflow-y: auto;
   display: flex;
   flex-direction: column;
-  // border: 1px solid green;
 }
-
 
 .restaurant-showpage-content-header {
   order: 1;
   border-bottom: 1px solid #CCCCCC;
   padding: 0px 20px 0px 20px;
+  margin-bottom: 30px;
 }
 .restaurant-showpage-content-about-text {
   order: 2;
-  padding: 0px 20px 0px 20px;
-  margin: 40px 0px 40px 0px;
+  padding: 0px 30px 0px 30px;
+  margin: 0px 0px 40px 0px;
 }
 .restaurant-showpage-content-about-map {
   order: 3;
@@ -545,7 +545,7 @@
   flex-shrink: 1;
   width: auto;
   height: auto;
-   overflow-y: auto;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   // border: 1px solid green;
@@ -957,33 +957,25 @@ h3 {
 
 .review-item {
   order: 1;
-  // margin: 20px 10px 20px 10px;
-  height: 100%;
-  // width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 3px;
   border: 1px solid #CCCCCC;
-  margin: 30px 30px 30px 30px;
+  margin: 0px 40px 30px 40px;
 }
 
 .review-item-top {
   order: 1;
-  // border: 1px solid red;
-  // margin: 10px 20px 20px 10px;
-  width: 90%;
   display: flex;
-  // justify-content: space-between;
-  padding-left: 20px;
-  margin: 10px 20px 0 10px;
-  // min-height: 200px;
+  padding-left: 40px;
+  margin: 20px 0px 0px 0px;
+  width: 100%;
 }
 
 .review-item-rate {
   order: 1;
-  margin-right: 20px;
-
+  padding-right: 20px;
 }
 
 .review-item-author {
@@ -1001,9 +993,13 @@ h3 {
 .review-item-body {
   order: 2;
   // border: 1px solid red;
-  margin: 10px 20px 20px 10px;
+  margin: 20px 40px 30px 30px;
   min-height: 120px;
   width: 90%;
   align-items: center;
-  padding: 10px 20px 10px 20px;
+  font-size: 18px;
+  // padding: 10px 20px 10px 20px;
+}
+.review-item-rate>i {
+  color: #FFD700;
 }

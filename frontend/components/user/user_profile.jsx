@@ -36,12 +36,48 @@ const HOURS_TYPE = {
 };
 
 const RATE_TYPE = {
-  0: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  1: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  2: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  3: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  4: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
-  5: 'https://res.cloudinary.com/hobara/image/upload/c_scale,w_140/v1501068373/stars_b9cqyd.png',
+  0:  <span className='review-item-rate'>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+      </span>,
+  1: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  2: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  3: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  4: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star-o fa-lg" aria-hidden="true"></i>
+    </span>,
+  5: <span className='review-item-rate'>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+        <i className="fa fa-star fa-lg" aria-hidden="true"></i>
+    </span>
 };
 
 
@@ -57,7 +93,7 @@ class UserProfile extends Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.requestAllRestaurant();
     this.props.requestAllReservation();
   }
@@ -87,15 +123,21 @@ class UserProfile extends Component {
         {upcoming.map((res, idx) =>
           <section key={idx} className='upcoming-item'>
             <section className='upcoming-item-left'>
-              <img className='upcoming-res-img'
-                src={this.props.restaurants[res.restaurant.id].image1}/>
+                <Link to={`/restaurants/${res.restaurant.id}`} >
+                  <img className='upcoming-res-img' src={this.props.restaurants[res.restaurant.id].image1}/>
+                </Link>
             </section>
             <section className='upcoming-item-middle'>
-              <section className='upcoming-res-name'>
-                {this.props.restaurants[res.restaurant.id].name}
-              </section>
+              <Link to={`/restaurants/${res.restaurant.id}`} className='upcoming-res-name-link' >
+                <section className='upcoming-res-name'>
+                  {this.props.restaurants[res.restaurant.id].name}
+                </section>
+              </Link>
               <section className='upcoming-res-date'>
                 {res.date}
+              </section>
+              <section className='upcoming-res-time'>
+                {res.time}
               </section>
               <section className='upcoming-res-seats'>
                 Table for {res.seats} people
@@ -127,16 +169,21 @@ class UserProfile extends Component {
         {past.map((res, idx) =>
           <section key={idx} className='upcoming-item'>
             <section className='upcoming-item-left'>
-              <img className='upcoming-res-img'
-                src={this.props.restaurants[res.restaurant.id]['image1']}
-                  />
+              <Link to={`/restaurants/${res.restaurant.id}`} >
+                <img className='upcoming-res-img' src={this.props.restaurants[res.restaurant.id]['image1']}/>
+              </Link>
             </section>
             <section className='upcoming-item-middle'>
-              <section className='upcoming-res-name'>
-                {this.props.restaurants[res.restaurant.id].name}
-              </section>
+              <Link to={`/restaurants/${res.restaurant.id}`} className='upcoming-res-name-link'>
+                <section className='upcoming-res-name'>
+                  {this.props.restaurants[res.restaurant.id].name}
+                </section>
+              </Link>
               <section className='upcoming-res-date'>
                 {res.date}
+              </section>
+              <section className='upcoming-res-time'>
+                {res.time}
               </section>
               <section className='upcoming-res-seats'>
                 Table for {res.seats} people
@@ -154,43 +201,67 @@ class UserProfile extends Component {
     }
   }
 
-
+  averageRate(restaurant_id) {
+    const res = this.props.restaurants[restaurant_id];
+    let averageRate = 0;
+    if (res) {
+      let totalRate = 0;
+      let allReviews = res.reviews;
+      allReviews.map((rev) => {
+        totalRate = totalRate + rev.rate;
+      });
+      if (totalRate === 0) {
+        averageRate = 0;
+      } else {
+        averageRate = Math.floor(totalRate/allReviews.length);
+      }
+    }
+    return averageRate;
+  }
 
   favoriteRestaurants() {
-    if (Object.keys(this.props.restaurants).length >=1 ) {
-    return(
-      <div>
-        {this.props.currentUser.favorites.map((res, idx) => (
-          <section key={idx} className='favorite-item'>
-            <section className='favorite-item-left'>
-              <img className='upcoming-res-img'
-                src={this.props.restaurants[res.restaurant_id]['image1']}
-                  />
+    if (Object.keys(this.props.restaurants).length > 0 ) {
+
+      return(
+        <div>
+          {this.props.currentUser.favorites.map((res, idx) => (
+            <section key={idx} className='favorite-item'>
+              <section className='favorite-item-left'>
+                <Link to={`/restaurants/${res.restaurant.id}`} >
+                  <img className='upcoming-res-img' src={this.props.restaurants[res.restaurant_id]['image1']}/>
+                </Link>
+              </section>
+              <section className='favorite-item-middle'>
+                <Link to={`/restaurants/${res.restaurant.id}`} className='favorite-item-name-link'>
+                  <section className='favorite-item-name'>
+                    {this.props.restaurants[res.restaurant_id].name}
+                  </section>
+                </Link>
+                <section className='favorite-item-rate'>
+                  {RATE_TYPE[this.averageRate(res.restaurant_id)]}
+                </section>
+                <section className='favorite-item-type'>
+                  {CUISINE_TYPE[this.props.restaurants[res.restaurant_id].cuisine]}
+                </section>
+                <section className='favorite-item-price'>
+                  {PRICE_TYPE[this.props.restaurants[res.restaurant_id].price]}
+                </section>
+              </section>
+              <section className='favorite-item-right'>
+                <section className='unfavorite-form'>
+                  <span className='unfavorite-button' key={idx}
+                    onClick={() => {
+                      let favorite = {};
+                      favorite.user_id = this.props.currentUser.id;
+                      favorite.restaurant_id = res.restaurant_id;
+                      this.props.removeFavorite(res.restaurant_id);
+                    }}>Unfavorite</span>
+                </section>
+              </section>
             </section>
-            <section className='favorite-item-middle'>
-              <section className='favorite-item-name'>
-                {this.props.restaurants[res.restaurant_id].name}
-              </section>
-              <section className='favorite-item-rate'>
-                <img src={RATE_TYPE[this.props.restaurants[res.restaurant_id].rate]} />
-              </section>
-              <section className='favorite-item-type'>
-                {CUISINE_TYPE[this.props.restaurants[res.restaurant_id].cuisine]}
-              </section>
-              <section className='favorite-item-price'>
-                {PRICE_TYPE[this.props.restaurants[res.restaurant_id].price]}
-              </section>
-            </section>
-            <section className='favorite-item-right'>
-              <section className='unfavorite-form'>
-                <span className='unfavorite-button' key={idx}
-                  onClick={() => {window.alert('Please do not unfavorite me today!');}}>Unfavorite</span>
-              </section>
-            </section>
-          </section>
-        ))}
-      </div>
-    );
+          ))}
+        </div>
+      );
   }
   }
 

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
   restaurants: state.restaurants,
   reservations: state.reservations,
   reviews: state.reviews,
-  // favorites: state.favorites
+  favorite: state.favorite
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   createReview: (review) => dispatch(createReview()),
   // requestAllFavorite: () => dispatch(requestAllFavorite())
   // addFavorite: (favorite) => dispatch(addFavorite()),
-  // removeFavorite: (favorite) => dispatch(removeFavorite())
+  removeFavorite: (favorite) => dispatch(removeFavorite(favorite))
 
   // requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id))
 });

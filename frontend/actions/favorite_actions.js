@@ -18,9 +18,8 @@ export const removeFavorite = (favorite) => dispatch => (
   .then(dispatch(receiveRemoveFavorite(favorite)))
 );
 
-const receiveAllFavorite = (favorites) => ({
+const receiveAllFavorite = () => ({
   type: RECEIVE_ALL_FAVORITE,
-  favorites
 });
 
 const receiveSingleFavorite = favorite => ({

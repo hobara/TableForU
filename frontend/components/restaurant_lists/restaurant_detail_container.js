@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   restaurant: state.restaurant,
   restaurants: state.restaurants,
   favorites: state.favorites,
-  reviews: state.reviews,
+  // reviews: state.reviews,
 
 });
 
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   requestSingleRestaurant: (id) => dispatch(requestSingleRestaurant(id)),
   addFavorite: (favorite) => dispatch(addFavorite(favorite)),
   createReview: (review) => dispatch(createReview(review)),
-  requestAllReview: () => dispatch(requestAllReview())
+  // requestAllReview: () => dispatch(requestAllReview())
 });
 
 export default connect(
