@@ -117,7 +117,7 @@ class UserProfile extends Component {
         upcoming.push(res);
       }
     });
-    if (this.props.restaurants[past[0].restaurant.id] !== undefined) {
+    if (Object.keys(this.props.restaurants).length > 0 && upcoming.length > 0) {
     return(
       <div>
         {upcoming.map((res, idx) =>
@@ -163,7 +163,7 @@ class UserProfile extends Component {
         upcoming.push(res);
       }
     });
-    if (this.props.restaurants[past[0].restaurant.id] !== undefined) {
+    if (Object.keys(this.props.restaurants).length > 0 && past.length > 0) {
     return(
       <div>
         {past.map((res, idx) =>
