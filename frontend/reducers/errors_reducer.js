@@ -7,7 +7,11 @@ const ErrorsReducer = (state = [], action) => {
     case CLEAR_ERRORS:
       return [];
     case RECEIVE_ERRORS:
-      return action.errors;
+      if (action.errors) {
+        return action.errors;
+      } else {
+        return state;
+      }
     default:
       return state;
   }

@@ -90,8 +90,7 @@ class SignInModal extends React.Component {
 
   handleDemo(event) {
     event.preventDefault();
-    this.props.signin({user: {username:'Guest', password:'password'}})
-    .then(() => this.closeModal());
+    this.props.signin({user: {username:'Guest', password:'password'}});
   }
 
   renderErrors() {
@@ -109,7 +108,6 @@ class SignInModal extends React.Component {
   clearErrors() {
     this.state.clearErrors();
   }
-
 
   modalContent() {
     if (this.state.modalOpen === 'signin') {
@@ -155,7 +153,6 @@ class SignInModal extends React.Component {
         </span>
       );
     }
-
   }
 
   render() {
@@ -169,11 +166,6 @@ class SignInModal extends React.Component {
             className='signin-form-container'
             onRequestClose={this.closeModal}
             >
-            <i
-              className='fa fa-times close-button'
-              aria-hidden='true'
-              onClick={this.closeModal}>
-            </i>
             {this.modalContent()}
           </Modal>
       </span>

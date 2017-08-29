@@ -3,9 +3,14 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const SessionReducer = (state = null, action) => {
   Object.freeze(state);
+  console.log(action);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return action.user;
+      if (action.user === undefined) {
+        return state;
+      } else {
+        return action.user;
+      }
     default:
       return state;
   }

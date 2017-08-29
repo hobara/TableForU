@@ -90,12 +90,6 @@ class SignUpModal extends React.Component {
           className='signup-form-container'
           onRequestClose={this.closeModal}
           >
-          <i
-            className='fa fa-times close-button'
-            aria-hidden='true'
-            onClick={this.closeModal}>
-          </i>
-
           <span className='signup-form-header'>Welcome to TableForÜ!</span>
           <input type='text' className='signup-input' placeholder='  Username*'
             value={this.state.username} onChange={this.update('username')} />

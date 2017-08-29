@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
-import { login, logout, signup, receiveErrors } from '../../actions/session_actions';
+import { signin, signout, signup, receiveErrors, clearErrors } from '../../actions/session_actions';
 import SignUpModal from './signup_modal';
 
 const mapStateToProps = (state) => ({
-  errors: state.errors
+  errors: state.errors,
+  currentUser: state.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signup: user => dispatch(signup(user))
+  signin: user => dispatch(signin(user)),
+  signup: user => dispatch(signup(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(
