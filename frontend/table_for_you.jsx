@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
-  window.getState = store.getState;
-  window.signout = signout;
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

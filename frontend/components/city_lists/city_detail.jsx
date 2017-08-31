@@ -44,7 +44,6 @@ class CityDetail extends Component {
           <div className='city-show-page-restaurant'>
             <RestaurantListsContainer city={city}/>
           </div>
-          <Link to={`/`} className='go-back-to-home'>Go Back To Home</Link>
         </div>
       </div>
     );
